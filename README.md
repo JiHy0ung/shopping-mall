@@ -109,15 +109,15 @@ npm start
   - 주문 번호로 검색 가능
 
 
-ㅤ
-
-
 
 ## **🧾 API 명세**
 | Method | Endpoint | Description |
 |--------|----------|-------------|
 |     | `/` | 추가 예정|
 
+
+## **🎛️ 데이터베이스 ERD**
+<img width="428" height="286" alt="image" src="https://github.com/user-attachments/assets/9dcf0fbc-80fa-4a0e-953e-433a58a2fd27" />
 
 ## **📂 폴더 구조**
 #### FrontEnd

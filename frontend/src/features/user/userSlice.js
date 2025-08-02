@@ -37,7 +37,9 @@ export const registerUser = createAsyncThunk(
     } catch (err) {
       dispatch(
         showToastMessage({
-          message: `${err.error ? err.error : "회원가입에 실패했습니다."}`,
+          message: `${
+            err.error ? err.error : `회원가입에 실패했습니다.${err.message}`
+          }`,
           status: "error",
         })
       );

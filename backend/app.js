@@ -2,6 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const cors = require("cors");
+const indexRouter = require("./routes/index");
 const app = express();
 require("dotenv").config();
 
@@ -9,6 +10,8 @@ app.use(cors());
 // ???
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+
+app.use("/api", indexRouter); // /api로 시작하는 주소는 indexRouter로 보냄.
 
 const mongoURI = process.env.LOCAL_DB_ADDRESS;
 

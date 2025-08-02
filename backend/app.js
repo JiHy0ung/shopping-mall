@@ -13,7 +13,10 @@ app.use(bodyParser.json());
 
 app.use("/api", indexRouter); // /api로 시작하는 주소는 indexRouter로 보냄.
 
-const mongoURI = process.env.LOCAL_DB_ADDRESS;
+// const mongoURI = process.env.LOCAL_DB_ADDRESS;
+const mongoURI = process.env.MONGODB_URI_PROD;
+
+console.log("mongoUri", mongoURI);
 
 mongoose
   .connect(mongoURI, { useNewUrlParser: true })

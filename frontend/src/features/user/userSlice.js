@@ -22,7 +22,7 @@ export const registerUser = createAsyncThunk(
     { dispatch, rejectWithValue }
   ) => {
     try {
-      const response = await api.post("/api/user", { email, password, name });
+      const response = await api.post("/user", { email, password, name });
 
       dispatch(
         showToastMessage({

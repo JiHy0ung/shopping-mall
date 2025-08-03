@@ -27,6 +27,8 @@ const Login = () => {
     dispatch(loginWithEmail({ email, password }));
   };
 
+  console.log("user", user);
+
   const handleGoogleLogin = async (googleData) => {
     //구글 로그인 하기
   };

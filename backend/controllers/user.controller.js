@@ -29,7 +29,7 @@ userController.createUser = async (req, res, next) => {
 userController.getUser = async (req, res) => {
   try {
     const { userId } = req;
-    const user = await User.findOne({ userId });
+    const user = await User.findOne({ _id: userId });
     if (user) {
       return res.status(200).json({ status: "Success", user });
     }

@@ -21,6 +21,7 @@ const Login = () => {
       dispatch(clearErrors());
     }
   }, [navigate]);
+
   const handleLoginWithEmail = (event) => {
     event.preventDefault();
     dispatch(loginWithEmail({ email, password }));
@@ -33,6 +34,7 @@ const Login = () => {
   if (user) {
     navigate("/");
   }
+
   return (
     <>
       <Container className="login-area">

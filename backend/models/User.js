@@ -1,5 +1,9 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
+const jwt = require("jsonwebtoken");
+require("dotenv").config();
+
+const secretKey = process.env.JWT_SECRET_KEY;
 
 const userSchema = Schema(
   {
@@ -10,6 +14,13 @@ const userSchema = Schema(
   },
   { timestamps: true }
 );
+
+userSchema.methods.generateToken = async () => {
+  const token = await jwt.sign({ _id: this._id }, secretKey, {
+    expiresIn: "3d",
+  });
+  return token;
+};
 
 // 데이터를 Json을 만들어 반환하기 전에 불필요한 데이터 삭제
 userSchema.methods.toJSON = function () {

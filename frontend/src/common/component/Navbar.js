@@ -121,7 +121,7 @@ const Navbar = ({ user }) => {
               </div>
             )}
 
-            {user && user.level !== "admin" && (
+            {user.level !== "admin" && (
               <>
                 <div onClick={() => navigate("/")} className="nav-icon">
                   {/* <FontAwesomeIcon icon={faBox} /> */}

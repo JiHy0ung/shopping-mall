@@ -1,44 +1,171 @@
-.ml-2{
-    margin-left: 20px;
+.ml-2 {
+  margin-left: 20px;
 }
-.space-between{
-    justify-content: space-between;
+.space-between {
+  justify-content: space-between;
 }
-.mb-2{
-    margin-bottom: 20px !important;
-}
-
-.mt-2{
-    margin-top: 20px !important;
-}
-.list-style-none{
-    list-style: none;
- }
- .display-center{
-    display: flex;
-    justify-content: center;
- }
- .display-space-between{
-    display: flex;
-    justify-content: space-between;
- }
- .display-flex{
-    display: flex;
-  }
-.display-none{
-    display: none;
+.mb-2 {
+  margin-bottom: 20px !important;
 }
 
-.overflow-x{
-    overflow-x:auto;
-    width: 100%;
+.mt-2 {
+  margin-top: 20px !important;
+}
+.list-style-none {
+  list-style: none;
+}
+.display-center {
+  display: flex;
+  justify-content: center;
+}
+.display-space-between {
+  display: flex;
+  justify-content: space-between;
+}
+.display-flex {
+  display: flex;
+}
+.display-none {
+  display: none;
+}
 
+.overflow-x {
+  overflow-x: auto;
+  width: 100%;
 }
 
 .overflow-x::-webkit-scrollbar {
-    display: none;
-  }
+  display: none;
+}
 
-  .vh-100{
-    height:100vh;
-  }
+.vh-100 {
+  height: 100vh;
+}
+
+.user-profile {
+  position: relative;
+  padding: 0px 8px 0px 0px;
+}
+.user-profile-icon {
+  margin-left: 10px;
+}
+
+.popover {
+  background-color: #1f1f21 !important;
+  padding: 12px 16px 12px 24px;
+  position: absolute;
+  min-width: 214px;
+  border: none;
+}
+.popover .popover-arrow {
+  display: none !important;
+}
+.popover-title {
+  font-family: "Noto Sans KR";
+  font-weight: 500;
+  font-size: 16px;
+  margin-bottom: 12px;
+}
+.popover-content {
+  font-family: "Noto Sans KR";
+  font-weight: 500;
+  font-size: 12px;
+  padding-bottom: 8px;
+  margin: 0;
+  color: #9e9ea0;
+  cursor: pointer;
+}
+.popover-content:hover {
+  color: #ffffff;
+}
+
+.nike-logo {
+  width: 59px;
+  height: 59px;
+  transform: scale(1.33);
+  fill: white;
+}
+
+.icons-area {
+  display: flex;
+  gap: 4px;
+}
+
+.search-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 30px;
+  cursor: pointer;
+  background-color: #111111;
+  margin: 0;
+}
+.search-icon:hover {
+  background-color: rgb(255, 255, 255, 0.1);
+  border-radius: 30px;
+}
+
+.cart-icon {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 36px;
+  height: 36px;
+  cursor: pointer;
+}
+.cart-icon:hover {
+  background-color: rgb(255, 255, 255, 0.1);
+  border-radius: 30px;
+}
+.cart-item-number {
+  position: absolute;
+  font-family: "Noto Sans KR";
+  font-weight: 300;
+  font-size: 8px;
+  font-weight: 500;
+  top: 13px;
+  left: 15.5px;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}
+
+.wishlist-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 36px;
+  height: 36px;
+  cursor: pointer;
+}
+.wishlist-icon:hover {
+  background-color: rgb(255, 255, 255, 0.1);
+  border-radius: 30px;
+}
+
+.student-event-area {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 6px 0px 6px 0px;
+  background-color: #111111;
+  box-shadow: #39393b 0 -1px 0 0 inset;
+}
+.student-event-title {
+  font-family: "Noto Sans KR";
+  font-weight: 400;
+  font-size: 16px;
+  margin: 0px 0px 3px 0px;
+}
+.student-event-link {
+  font-family: "Noto Sans KR";
+  font-weight: 500;
+  font-size: 12px;
+  text-decoration: underline;
+  cursor: pointer;
+  margin: 0;
+}

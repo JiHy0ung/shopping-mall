@@ -121,27 +121,21 @@ const Navbar = ({ user }) => {
               </div>
             )}
 
-            {user.level !== "admin" && (
-              <>
-                <div onClick={() => navigate("/")} className="nav-icon">
-                  {/* <FontAwesomeIcon icon={faBox} /> */}
-                  {!isMobile && (
-                    <span style={{ cursor: "pointer" }}>매장 찾기</span>
-                  )}
-                </div>
+            <div onClick={() => navigate("/")} className="nav-icon">
+              {/* <FontAwesomeIcon icon={faBox} /> */}
+              {!isMobile && (
+                <span style={{ cursor: "pointer" }}>매장 찾기</span>
+              )}
+            </div>
 
-                <div className="vertical-line"></div>
+            <div className="vertical-line"></div>
 
-                <div onClick={() => navigate("/")} className="nav-icon">
-                  {/* <FontAwesomeIcon icon={faBox} /> */}
-                  {!isMobile && (
-                    <span style={{ cursor: "pointer" }}>고객센터</span>
-                  )}
-                </div>
+            <div onClick={() => navigate("/")} className="nav-icon">
+              {/* <FontAwesomeIcon icon={faBox} /> */}
+              {!isMobile && <span style={{ cursor: "pointer" }}>고객센터</span>}
+            </div>
 
-                <div className="vertical-line"></div>
-              </>
-            )}
+            <div className="vertical-line"></div>
 
             {/* <div
               onClick={() => navigate("/account/purchase")}

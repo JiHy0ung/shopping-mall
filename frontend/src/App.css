@@ -214,9 +214,6 @@ body {
   text-align: left;
   width: 100%;
 }
-.form-control:valid {
-  background-color: white !important;
-}
 
 .drop-down {
   margin-top: 20px;

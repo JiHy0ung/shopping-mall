@@ -1,50 +1,70 @@
-.card-area{
-    margin-top:20px;
+.card-area {
+  margin-top: 20px;
 }
-.admin-product-card{
-    border:1px solid red;
-
+.admin-product-card {
+  border: 1px solid red;
 }
-.tag{
-    margin-left:10px
-}
-
-.display-flex{
-    display:flex;
-    align-items: center;
-}
-.locate-center{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-}
-.stock{
-    margin-right: 10px;
+.tag {
+  margin-left: 10px;
 }
 
-
-.mt-2{
-    margin-top: 20px;
+.display-flex {
+  display: flex;
+  align-items: center;
+}
+.locate-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+.stock {
+  margin-right: 10px;
 }
 
-.form-container{
-    padding:20px
-}
-.mr-1{
-    margin-right: 10px;
+.mt-2 {
+  margin-top: 20px;
 }
 
-.upload-image{
-    max-width: 458px;
-    width:100%
+.mr-1 {
+  margin-right: 10px;
 }
-.display-center{
-    display: flex;
-    justify-content: center;
+
+.upload-image {
+  max-width: 458px;
+  width: 100%;
 }
-.error-message{
-    color: red;
-    font-size: 10pt;
-    padding-right: 10px;
+.display-center {
+  display: flex;
+  justify-content: center;
+}
+.error-message {
+  color: red;
+  font-size: 10pt;
+  padding-right: 10px;
+}
+
+.modal-header {
+  background-color: #1f1f21;
+  border-bottom: 1px solid #373739;
+}
+.form-container {
+  color: white;
+  background-color: #1f1f21;
+  padding: 20px;
+}
+.form-container *::placeholder {
+  color: rgb(200, 200, 200);
+}
+.form-control:focus {
+  background-color: #373739;
+  color: white !important;
+}
+.form-container input,
+.form-container textarea,
+.form-container select,
+.form-container .form-select,
+.form-container .form-control {
+  background-color: #373739 !important;
+  color: white;
 }

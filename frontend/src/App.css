@@ -270,6 +270,82 @@ body {
   background-color: rgb(204, 204, 204);
 }
 
+.hero-img-area {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 84px;
+  margin-inline: 42px;
+}
+.hero-img-area > * {
+  padding-right: 6px;
+  padding-left: 6px;
+}
+.hero-img-wrapper {
+  position: relative;
+}
+.hero-img-area img {
+  width: 100%;
+}
+.hero-img-info {
+  position: absolute;
+  left: 50px;
+  bottom: 50px;
+}
+.hero-img-area p {
+  font-weight: 500;
+  margin-bottom: 13px;
+}
+.hero-img-area h3 {
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+.landing-hero-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 500;
+  background-color: white;
+  border-radius: 30px;
+  padding: 8px 16px;
+  border: none;
+  margin-top: 26px;
+}
+.landing-hero-btn:hover {
+  background-color: rgb(204, 204, 204);
+}
+
+.hero-event-area {
+  margin-block: 84px;
+}
+.hero-event-area img {
+  width: 100%;
+}
+.hero-event-text-area {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+.hero-event-wrapper {
+  text-decoration: none;
+}
+.hero-event-subtitle {
+  margin-top: 36px;
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+.hero-event-title {
+  font-size: 3.05rem;
+  font-weight: 900;
+}
+.hero-event-desc {
+  text-align: center;
+  line-height: 1.75rem;
+  margin-bottom: 0;
+}
+
 .card {
   padding-top: 2rem;
   background: none;

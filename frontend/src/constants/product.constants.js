@@ -12,9 +12,26 @@ export const PRODUCT_EDIT_REQUEST = "PRODUCT_EDIT_REQUEST";
 export const PRODUCT_EDIT_SUCCESS = "PRODUCT_EDIT_SUCCESS";
 export const PRODUCT_EDIT_FAIL = "PRODUCT_EDIT_FAIL";
 export const SET_FILTERED_LIST = "SET_FILTERED_LIST";
-export const CATEGORY = ["Top", "Dress", "Pants"];
+export const CATEGORY = ["Top", "Dress", "Pants", "Shoes"];
 export const STATUS = ["active", "disactive"];
 export const SIZE = ["XS", "S", "M", "L", "XL"];
+export const SHOES_SIZE = [
+  "220",
+  "225",
+  "230",
+  "235",
+  "240",
+  "245",
+  "250",
+  "255",
+  "260",
+  "265",
+  "270",
+  "275",
+  "280",
+  "285",
+  "290",
+];
 export const TOGGLE_ITEM_DIALOG = "TOGGLE_ITEM_DIALOG";
 export const SEARCH_PRODUCT_REQUEST = " SEARCH_PRODUCT_REQUEST";
 export const SEARCH_PRODUCT_SUCCESS = " SEARCH_PRODUCT_SUCCESS";

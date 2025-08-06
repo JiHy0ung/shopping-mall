@@ -2,7 +2,12 @@ import React, { useState, useEffect } from "react";
 import { Form, Modal, Button, Row, Col, Alert } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import CloudinaryUploadWidget from "../../../utils/CloudinaryUploadWidget";
-import { CATEGORY, STATUS, SIZE } from "../../../constants/product.constants";
+import {
+  CATEGORY,
+  STATUS,
+  SIZE,
+  SHOES_SIZE,
+} from "../../../constants/product.constants";
 import "../style/adminProduct.style.css";
 import {
   clearError,
@@ -31,6 +36,7 @@ const NewItemDialog = ({ mode, showDialog, setShowDialog }) => {
   const [stock, setStock] = useState([]);
   const dispatch = useDispatch();
   const [stockError, setStockError] = useState(false);
+  const [isShoes, setIsShoes] = useState(false);
 
   console.log("stock", stock);
 
@@ -134,6 +140,12 @@ const NewItemDialog = ({ mode, showDialog, setShowDialog }) => {
     }
   };
 
+  useEffect(() => {
+    setIsShoes(
+      formData.category.length === 1 && formData.category[0] === "shoes"
+    );
+  }, [formData.category]);
+
   const uploadImage = (url) => {
     //이미지 업로드
     setFormData({ ...formData, image: url });
@@ -215,18 +227,31 @@ const NewItemDialog = ({ mode, showDialog, setShowDialog }) => {
                     <option value="" disabled selected hidden>
                       Please Choose...
                     </option>
-                    {SIZE.map((item, index) => (
-                      <option
-                        inValid={true}
-                        value={item.toLowerCase()}
-                        disabled={stock.some(
-                          (size) => size[0] === item.toLowerCase()
-                        )}
-                        key={index}
-                      >
-                        {item}
-                      </option>
-                    ))}
+                    {isShoes
+                      ? SHOES_SIZE.map((item, index) => (
+                          <option
+                            inValid={true}
+                            value={item.toLowerCase()}
+                            disabled={stock.some(
+                              (size) => size[0] === item.toLowerCase()
+                            )}
+                            key={index}
+                          >
+                            {item}
+                          </option>
+                        ))
+                      : SIZE.map((item, index) => (
+                          <option
+                            inValid={true}
+                            value={item.toLowerCase()}
+                            disabled={stock.some(
+                              (size) => size[0] === item.toLowerCase()
+                            )}
+                            key={index}
+                          >
+                            {item}
+                          </option>
+                        ))}
                   </Form.Select>
                 </Col>
                 <Col sm={6}>

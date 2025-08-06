@@ -38,6 +38,22 @@
   display: none;
 }
 
+table,
+tbody,
+td,
+tfoot,
+th,
+thead,
+tr {
+  color: white;
+}
+.table-striped > tbody > tr:nth-of-type(odd) > * {
+  color: white;
+}
+.table-hover > tbody > tr:hover > * {
+  color: rgb(135, 135, 135);
+}
+
 .vh-100 {
   height: 100vh;
 }

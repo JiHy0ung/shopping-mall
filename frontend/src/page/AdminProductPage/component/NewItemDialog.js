@@ -218,6 +218,7 @@ const NewItemDialog = ({ mode, showDialog, setShowDialog }) => {
               <Row key={index}>
                 <Col sm={4}>
                   <Form.Select
+                    className="mb-1"
                     onChange={(event) =>
                       handleSizeChange(event.target.value, index)
                     }

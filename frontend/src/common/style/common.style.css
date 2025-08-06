@@ -188,3 +188,25 @@ tr {
   cursor: pointer;
   margin: 0;
 }
+
+.footer-container {
+  padding: 48px;
+}
+.footer-area {
+  padding-block: 48px;
+  border-block: 1px solid #39393b;
+}
+.footer-area ul {
+  display: flex;
+  gap: 24px;
+  padding: 0;
+  margin: 0;
+  color: #9e9ea0;
+  font-weight: 500;
+  font-size: 14px;
+  list-style: none;
+}
+.footer-area li:hover {
+  color: white;
+  cursor: pointer;
+}

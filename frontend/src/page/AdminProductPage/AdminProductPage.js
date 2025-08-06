@@ -33,7 +33,7 @@ const AdminProductPage = () => {
     "Stock",
     "Image",
     "Status",
-    "",
+    "Delete/Edit",
   ];
 
   //상품리스트 가져오기 (url쿼리 맞춰서)
@@ -68,17 +68,20 @@ const AdminProductPage = () => {
   return (
     <div className="locate-center">
       <Container>
-        <div className="mt-2">
+        <div className="search-add mt-2">
           <SearchBox
             searchQuery={searchQuery}
             setSearchQuery={setSearchQuery}
             placeholder="제품 이름으로 검색"
             field="name"
           />
+          <Button
+            className="add-item-btn mt-2 mb-2"
+            onClick={handleClickNewItem}
+          >
+            Add New Item +
+          </Button>
         </div>
-        <Button className="mt-2 mb-2" onClick={handleClickNewItem}>
-          Add New Item +
-        </Button>
 
         <ProductTable
           header={tableHeader}

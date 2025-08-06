@@ -192,13 +192,15 @@ const NewItemDialog = ({ mode, showDialog, setShowDialog }) => {
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="stock">
-          <Form.Label className="mr-1">Stock</Form.Label>
-          {stockError && (
-            <span className="error-message">재고를 추가해주세요</span>
-          )}
-          <Button size="sm" onClick={addStock}>
-            Add +
-          </Button>
+          <div className="display-flex">
+            <Form.Label className="mr-1">Stock</Form.Label>
+            {stockError && (
+              <span className="error-message">재고를 추가해주세요</span>
+            )}
+            <Button className="add-item-btn" size="sm" onClick={addStock}>
+              Add +
+            </Button>
+          </div>
           <div className="mt-2">
             {stock.map((item, index) => (
               <Row key={index}>
@@ -240,11 +242,11 @@ const NewItemDialog = ({ mode, showDialog, setShowDialog }) => {
                 </Col>
                 <Col sm={2}>
                   <Button
-                    variant="danger"
+                    className="delete-btn"
                     size="sm"
                     onClick={() => deleteStock(index)}
                   >
-                    -
+                    －
                   </Button>
                 </Col>
               </Row>
@@ -253,9 +255,10 @@ const NewItemDialog = ({ mode, showDialog, setShowDialog }) => {
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="Image" required>
-          <Form.Label>Image</Form.Label>
-          <CloudinaryUploadWidget uploadImage={uploadImage} />
-
+          <div className="display-flex">
+            <Form.Label>Image</Form.Label>
+            <CloudinaryUploadWidget uploadImage={uploadImage} />
+          </div>
           <img
             id="uploadedimage"
             src={formData.image}
@@ -309,11 +312,11 @@ const NewItemDialog = ({ mode, showDialog, setShowDialog }) => {
           </Form.Group>
         </Row>
         {mode === "new" ? (
-          <Button variant="primary" type="submit">
+          <Button className="add-item-btn" type="submit">
             Submit
           </Button>
         ) : (
-          <Button variant="primary" type="submit">
+          <Button className="add-item-btn" type="submit">
             Edit
           </Button>
         )}

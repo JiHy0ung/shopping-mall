@@ -32,6 +32,7 @@ const AdminOrderPage = () => {
     "Address",
     "Total Price",
     "Status",
+    "Delete/Edit",
   ];
 
   useEffect(() => {

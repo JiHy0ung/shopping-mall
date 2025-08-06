@@ -22,7 +22,7 @@ const AppLayout = ({ children }) => {
     }
   }, [user]);
   return (
-    <div>
+    <div className="overflow-x">
       <ToastMessage />
       {location.pathname.includes("admin") ? (
         <Row className="vh-100">

@@ -30,6 +30,36 @@
   margin-right: 10px;
 }
 
+.page-link {
+  color: black;
+  background-color: white;
+  border: 1px solid whitesmoke;
+}
+.page-link:hover {
+  color: black;
+  background-color: whitesmoke;
+  border: 1px solid black;
+}
+.page-link:focus {
+  color: black;
+  background-color: whitesmoke;
+  border: 1px solid black;
+  box-shadow: none;
+}
+.page-item.active .page-link {
+  font-family: "Noto Sans KR";
+  font-weight: 900;
+  color: white;
+  background-color: black;
+  border: 1px solid white;
+  box-shadow: none;
+}
+.page-item .disabled {
+  color: white;
+  background-color: black;
+  border: 2px solid black;
+}
+
 .upload-image {
   max-width: 458px;
   width: 100%;
@@ -67,4 +97,102 @@
 .form-container .form-control {
   background-color: #373739 !important;
   color: white;
+}
+
+.search-add {
+  display: flex;
+  justify-content: space-between;
+}
+
+.add-item-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Noto Sans KR";
+  font-weight: 500;
+  color: black;
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 0;
+  transition: all 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+.add-item-btn:hover {
+  background-color: black;
+  color: white;
+  border: 1px solid white;
+  box-shadow: none;
+}
+.add-item-btn:focus {
+  background-color: black;
+  color: white;
+  border: 1px solid white;
+  box-shadow: none;
+}
+.add-item-btn:active:focus {
+  background-color: black;
+  color: white;
+  border: 1px solid white;
+  box-shadow: none;
+}
+
+.delete-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 38px;
+  font-family: "Noto Sans KR";
+  font-weight: 900;
+  color: white;
+  background-color: crimson;
+  border: 1px solid #ced4da;
+  transition: all 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+.delete-btn:hover {
+  background-color: darkred;
+  color: white;
+  border: 1px solid white;
+  box-shadow: none;
+}
+.delete-btn:focus {
+  background-color: darkred;
+  color: white;
+  border: 1px solid white;
+  box-shadow: none;
+}
+.delete-btn:active:focus {
+  background-color: darkred;
+  color: white;
+  border: 1px solid white;
+  box-shadow: none;
+}
+
+.edit-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 38px;
+  font-family: "Noto Sans KR";
+  font-weight: 600;
+  color: white;
+  background-color: cornflowerblue;
+  border: 1px solid #ced4da;
+  transition: all 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+.edit-btn:hover {
+  background-color: royalblue;
+  color: white;
+  border: 1px solid white;
+  box-shadow: none;
+}
+.edit-btn:focus {
+  background-color: royalblue;
+  color: white;
+  border: 1px solid white;
+  box-shadow: none;
+}
+.edit-btn:active:focus {
+  background-color: royalblue;
+  color: white;
+  border: 1px solid white;
+  box-shadow: none;
 }

@@ -140,19 +140,26 @@ body {
 
   /* background-color: #faf9f8; */
 }
-.sidebar {
-  max-width: 500px;
-}
 
 .search-box {
   display: flex;
-  justify-content: center;
+  justify-content: start;
   align-items: center;
   border-bottom: 1px solid black;
-  /* position: absolute; */
-  width: 168px;
+  width: 200px;
   padding-right: 6px;
+  margin-block: 20px;
+  background-color: #111111;
+  border-radius: 36px;
 }
+.admin-search-input {
+  border: none;
+  /* background-color: #faf9f8; */
+  width: 150px !important ;
+  background-color: #111111;
+  color: white;
+}
+
 .search-box input {
   border: none;
   /* background-color: #faf9f8; */
@@ -288,16 +295,21 @@ body {
   -o-transition: margin .25s ease-out;
   transition: margin .25s ease-out; */
 }
+
+.sidebar-logo {
+  padding: 1rem;
+}
 .sidebar-item {
-  color: black;
+  color: white;
   font-weight: bold;
   padding: 20px 10px;
   list-style-type: none;
 }
 .sidebar-item:hover {
   color: white;
-  background-color: red;
+  background-color: #1f1f21;
   font-weight: bold;
+  cursor: pointer;
 }
 .sidebar-area {
   padding-left: 0;
@@ -305,7 +317,7 @@ body {
 .sidebar {
   max-width: 300px;
   padding: 20px;
-  background-color: rgb(248, 249, 250);
+  background-color: #111111;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
     rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
   padding-left: 40px;

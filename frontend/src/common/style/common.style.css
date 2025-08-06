@@ -104,6 +104,8 @@ tr {
 
 .icons-area {
   display: flex;
+  justify-content: center;
+  align-items: center;
   gap: 4px;
 }
 
@@ -143,7 +145,7 @@ tr {
   font-size: 8px;
   font-weight: 500;
   top: 13px;
-  left: 15.5px;
+  left: 16px;
   width: 24px;
   height: 24px;
   cursor: pointer;
@@ -178,6 +180,7 @@ tr {
   margin: 0px 0px 3px 0px;
 }
 .student-event-link {
+  color: white;
   font-family: "Noto Sans KR";
   font-weight: 500;
   font-size: 12px;

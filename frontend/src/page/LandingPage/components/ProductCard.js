@@ -9,9 +9,9 @@ const ProductCard = ({ item }) => {
   };
   return (
     <div className="card" onClick={() => showProduct(item._id)}>
-      <img src={item?.image} alt={item?.image} />
-      <div>{item?.name}</div>
-      <div>₩ {currencyFormat(item?.price)}</div>
+      <img className="card-image" src={item?.image} alt={item?.image} />
+      <div className="card-title">{item?.name}</div>
+      <div className="card-price">{currencyFormat(item?.price)} 원</div>
     </div>
   );
 };

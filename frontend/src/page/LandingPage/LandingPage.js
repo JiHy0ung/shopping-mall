@@ -4,9 +4,7 @@ import { Row, Col, Container } from "react-bootstrap";
 import { useSearchParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getProductList } from "../../features/product/productSlice";
-import nikeVideo from "../../assets/nike_karina.mp4";
-import { ControlBar, Player } from "video-react";
-import "video-react/dist/video-react.css";
+import LandingHero from "./components/LandingHero";
 
 const LandingPage = () => {
   const dispatch = useDispatch();
@@ -24,23 +22,12 @@ const LandingPage = () => {
 
   return (
     <>
-      <Player
-        autoPlay={true}
-        loop={true}
-        muted={true}
-        playsInline={true}
-        controls={false}
-        className="landing-video-player"
-      >
-        <ControlBar disableDefaultControls={true} />
-        <source src={nikeVideo} />
-      </Player>
-
+      <LandingHero />
       <Container>
         <Row>
           {productList.length > 0 ? (
             productList.map((item) => (
-              <Col md={3} sm={12} key={item._id}>
+              <Col md={4} sm={12} key={item._id}>
                 <ProductCard item={item} />
               </Col>
             ))

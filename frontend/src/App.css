@@ -86,7 +86,19 @@ body {
   /* margin-right: 20px; */
   /* margin-top: 40px; */
 }
+.nav-header-brand-list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+}
+.nav-header-brand-list svg {
+  fill: white;
+}
 
+.nav-icon {
+  margin-bottom: 5px;
+}
 .nav-icon span {
   font-family: "Noto Sans KR";
   font-weight: 500;
@@ -106,11 +118,15 @@ body {
   font-weight: 500;
   font-size: 16px;
   margin: 0;
+  margin-left: 9rem;
 }
 .menu li a {
   text-decoration: none;
   color: rgb(255, 255, 255);
-  margin-left: 20px;
+  margin-left: 24px;
+}
+.menu li a:hover {
+  border-bottom: 2px solid white;
 }
 
 .nav-logo {
@@ -128,17 +144,37 @@ body {
 .burger-menu {
   margin-left: 20px;
 }
+.nav-header-user-menu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 .landing-search-box {
+  display: flex;
   right: 20px;
   /* position: absolute; */
   background-color: #111111;
   border-radius: 36px;
+  margin-right: 12px;
 }
 .landing-search-box input {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: #111111;
-
+  border: none;
+  color: white;
+  border-radius: 36px;
+  width: 132px;
   /* background-color: #faf9f8; */
+}
+.landing-search-box input:focus {
+  outline: none;
+}
+.landing-search-box input::placeholder {
+  font-weight: 500;
+  color: rgb(152, 152, 152);
 }
 
 .search-box {
@@ -200,9 +236,65 @@ body {
   background: none;
   padding-right: 30px;
 }
+
+.landing-main-text-area {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 36px;
+}
+.landing-main-title {
+  font-size: 3rem;
+  font-weight: 900;
+}
+.landing-main-subtitle {
+  margin: 8px 0px 0px 0px;
+}
+.landing-main-btn-area {
+  display: flex;
+  gap: 6px;
+  margin-top: 18px;
+}
+.landing-main-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 500;
+  background-color: white;
+  border-radius: 30px;
+  padding: 8px 16px;
+  border: none;
+}
+.landing-main-btn:hover {
+  background-color: rgb(204, 204, 204);
+}
+
 .card {
+  padding-top: 2rem;
+  background: none;
   border: none !important;
   margin-bottom: 10px;
+  cursor: pointer;
+}
+.card:hover .card-image {
+  transform: perspective(700px) rotateY(3deg) rotateX(-3deg);
+  z-index: 1;
+}
+.card-image {
+  /* object-position: center 0%; */
+  object-fit: cover;
+  aspect-ratio: 1 / 1;
+  transition: transform 0.3s ease;
+}
+.card-title {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-block: 0.25rem;
+}
+.card-price {
+  font-size: 0.825rem;
+  margin: 0;
 }
 
 .choice {
@@ -231,10 +323,6 @@ body {
   width: 100%;
 }
 
-.card:hover {
-  transform: scale(1.1);
-  z-index: 1;
-}
 .hide {
   visibility: hidden;
 }
@@ -374,6 +462,7 @@ body {
   font-weight: 500;
   color: white;
   text-decoration: none;
+  margin-bottom: 4px;
 }
 .link-area:hover {
   color: #e5e5e5;

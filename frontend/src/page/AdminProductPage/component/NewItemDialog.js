@@ -13,6 +13,7 @@ import {
   clearError,
   createProduct,
   editProduct,
+  getProductList,
 } from "../../../features/product/productSlice";
 
 const InitialFormData = {
@@ -36,6 +37,7 @@ const NewItemDialog = ({ mode, showDialog, setShowDialog }) => {
   const [stock, setStock] = useState([]);
   const dispatch = useDispatch();
   const [stockError, setStockError] = useState(false);
+  const [priceError, setPriceError] = useState(false);
   const [isShoes, setIsShoes] = useState(false);
 
   console.log("stock", stock);
@@ -45,10 +47,11 @@ const NewItemDialog = ({ mode, showDialog, setShowDialog }) => {
       setFormData({ ...InitialFormData });
       setStock([]);
       setStockError(false);
+      setPriceError(false);
       dispatch(clearError());
       setShowDialog(false);
     }
-  }, [success, setShowDialog]);
+  }, [success, setShowDialog, dispatch]);
 
   useEffect(() => {
     if (error || !success) {
@@ -77,6 +80,7 @@ const NewItemDialog = ({ mode, showDialog, setShowDialog }) => {
     setFormData({ ...InitialFormData });
     setStock([]);
     setStockError(false);
+    setPriceError(false);
     dispatch(clearError());
     setShowDialog(false);
   };
@@ -86,6 +90,10 @@ const NewItemDialog = ({ mode, showDialog, setShowDialog }) => {
     //재고를 입력했는지 확인, 아니면 에러
     if (stock.length === 0) {
       setStockError(true);
+      return;
+    }
+    if (formData.price < 1) {
+      setPriceError(true);
       return;
     }
     // 재고를 배열에서 객체로 바꿔주기
@@ -112,6 +120,7 @@ const NewItemDialog = ({ mode, showDialog, setShowDialog }) => {
     //재고타입 추가시 배열에 새 배열 추가
     setStock([...stock, []]);
     setStockError(false);
+    setPriceError(false);
   };
 
   const deleteStock = (idx) => {
@@ -305,6 +314,9 @@ const NewItemDialog = ({ mode, showDialog, setShowDialog }) => {
         </Form.Group>
 
         <Row className="mb-3">
+          {priceError && (
+            <span className="error-message">0원 이상의 값을 입력해주세요</span>
+          )}
           <Form.Group as={Col} controlId="price">
             <Form.Label>Price</Form.Label>
             <Form.Control

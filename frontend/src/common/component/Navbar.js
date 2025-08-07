@@ -26,6 +26,8 @@ const Navbar = ({ user }) => {
   const [show, setShow] = useState(false);
   const [target, setTarget] = useState(null);
 
+  const [searchValue, setSearchValue] = useState("");
+
   const handleEnter = (e) => {
     setTarget(e.target);
     setShow(true);
@@ -40,12 +42,17 @@ const Navbar = ({ user }) => {
     }, 200);
   };
 
+  const handleSearchValue = (event) => {
+    setSearchValue(event.target.value);
+  };
+
   const onCheckEnter = (event) => {
     if (event.key === "Enter") {
       if (event.target.value === "") {
         return navigate("/");
       }
       navigate(`?name=${event.target.value}`);
+      setSearchValue("");
     }
   };
 
@@ -70,7 +77,13 @@ const Navbar = ({ user }) => {
           <div className="search display-space-between w-100">
             <div>
               <FontAwesomeIcon className="search-icon" icon={faSearch} />
-              <input type="text" placeholder="검색" onKeyPress={onCheckEnter} />
+              <input
+                type="text"
+                placeholder="검색"
+                value={searchValue}
+                onChange={handleSearchValue}
+                onKeyPress={onCheckEnter}
+              />
             </div>
             <button
               className="closebtn"
@@ -324,7 +337,13 @@ const Navbar = ({ user }) => {
                   ></path>
                 </svg>
               </div>
-              <input type="text" placeholder="검색" onKeyPress={onCheckEnter} />
+              <input
+                type="text"
+                placeholder="검색"
+                value={searchValue}
+                onChange={handleSearchValue}
+                onKeyPress={onCheckEnter}
+              />
             </div>
           )}
           <div className="wishlist-icon">

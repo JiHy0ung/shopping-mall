@@ -36,17 +36,18 @@
 
 .page-link {
   color: black;
+  font-weight: 500;
   background-color: white;
   border: 1px solid whitesmoke;
 }
 .page-link:hover {
   color: black;
-  background-color: whitesmoke;
+  background-color: rgb(224, 224, 224);
   border: 1px solid black;
 }
 .page-link:focus {
   color: black;
-  background-color: whitesmoke;
+  background-color: rgb(224, 224, 224);
   border: 1px solid black;
   box-shadow: none;
 }
@@ -59,6 +60,7 @@
   box-shadow: none;
 }
 .page-item .disabled {
+  font-weight: 500;
   color: white;
   background-color: black;
   border: 2px solid black;

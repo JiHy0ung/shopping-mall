@@ -1,6 +1,8 @@
 const productController = {};
 const Product = require("../models/Product");
 
+const PAGE_SIZE = 5;
+
 productController.createProduct = async (req, res) => {
   try {
     const {
@@ -37,10 +39,20 @@ productController.getProducts = async (req, res) => {
     const { page, name } = req.query;
     const condition = name ? { name: { $regex: name, $options: "i" } } : {};
     let query = Product.find(condition); // 쿼리 선언
+    let response = { status: "Get Products Success" };
+
+    const totalItemNum = await Product.find(condition).countDocuments(); // count() -> 데이터의 개수만 반환
+    const totalPageNum = Math.ceil(totalItemNum / PAGE_SIZE);
+    response.totalPageNum = totalPageNum;
+
+    if (page) {
+      query.skip((page - 1) * PAGE_SIZE).limit(PAGE_SIZE);
+    }
 
     const productList = await query.exec(); // 퀴리 실행
+    response.data = productList;
 
-    res.status(200).json({ status: "Get Products Success", data: productList });
+    res.status(200).json(response);
   } catch (err) {
     res.status(400).json({ status: "Get Products Failed", err: err.message });
   }

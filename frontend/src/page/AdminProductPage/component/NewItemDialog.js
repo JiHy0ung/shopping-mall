@@ -41,8 +41,14 @@ const NewItemDialog = ({ mode, showDialog, setShowDialog }) => {
   console.log("stock", stock);
 
   useEffect(() => {
-    if (success) setShowDialog(false);
-  }, [success]);
+    if (success) {
+      setFormData({ ...InitialFormData });
+      setStock([]);
+      setStockError(false);
+      dispatch(clearError());
+      setShowDialog(false);
+    }
+  }, [success, setShowDialog]);
 
   useEffect(() => {
     if (error || !success) {
@@ -65,9 +71,13 @@ const NewItemDialog = ({ mode, showDialog, setShowDialog }) => {
   }, [showDialog]);
 
   const handleClose = () => {
-    //모든걸 초기화시키고;
-    setFormData(InitialFormData);
+    //모든걸 초기화시키고
     // 다이얼로그 닫아주기
+
+    setFormData({ ...InitialFormData });
+    setStock([]);
+    setStockError(false);
+    dispatch(clearError());
     setShowDialog(false);
   };
 
@@ -76,6 +86,7 @@ const NewItemDialog = ({ mode, showDialog, setShowDialog }) => {
     //재고를 입력했는지 확인, 아니면 에러
     if (stock.length === 0) {
       setStockError(true);
+      return;
     }
     // 재고를 배열에서 객체로 바꿔주기
     // [['M',2]] 에서 {M:2}로
@@ -204,11 +215,11 @@ const NewItemDialog = ({ mode, showDialog, setShowDialog }) => {
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="stock">
+          {stockError && (
+            <span className="error-message">재고를 추가해주세요</span>
+          )}
           <div className="display-flex">
             <Form.Label className="mr-1">Stock</Form.Label>
-            {stockError && (
-              <span className="error-message">재고를 추가해주세요</span>
-            )}
             <Button className="add-item-btn" size="sm" onClick={addStock}>
               Add +
             </Button>

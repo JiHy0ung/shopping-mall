@@ -75,6 +75,10 @@
   justify-content: center;
 }
 .error-message {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #1f1f21;
   color: red;
   font-size: 10pt;
   padding-right: 10px;
@@ -83,6 +87,9 @@
 .modal-header {
   background-color: #1f1f21;
   border-bottom: 1px solid #373739;
+}
+.modal-content {
+  background-color: #1f1f21;
 }
 .form-container {
   color: white;

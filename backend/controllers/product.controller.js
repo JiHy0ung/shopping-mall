@@ -16,6 +16,12 @@ productController.createProduct = async (req, res) => {
       category,
       status,
     } = req.body;
+
+    const isDuplicate = await Product.findOne({ sku });
+    if (isDuplicate) {
+      throw new Error("이미 존재하는 sku입니다.");
+    }
+
     const product = new Product({
       sku,
       name,
@@ -27,6 +33,7 @@ productController.createProduct = async (req, res) => {
       category,
       status,
     });
+
     await product.save();
     res.status(200).json({ status: "Add Item Success", product });
   } catch (err) {

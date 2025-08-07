@@ -39,7 +39,7 @@ const AdminProductPage = () => {
   //상품리스트 가져오기 (url쿼리 맞춰서)
   useEffect(() => {
     dispatch(getProductList({ ...searchQuery }));
-  }, [query, dispatch, searchQuery, showDialog]);
+  }, [query, dispatch, searchQuery]);
 
   useEffect(() => {
     //검색어나 페이지가 바뀌면 url바꿔주기 (검색어또는 페이지가 바뀜 => url 바꿔줌=> url쿼리 읽어옴=> 이 쿼리값 맞춰서  상품리스트 가져오기)
@@ -124,6 +124,8 @@ const AdminProductPage = () => {
         mode={mode}
         showDialog={showDialog}
         setShowDialog={setShowDialog}
+        searchQuery={searchQuery}
+        setSearchQuery={setSearchQuery}
       />
     </div>
   );

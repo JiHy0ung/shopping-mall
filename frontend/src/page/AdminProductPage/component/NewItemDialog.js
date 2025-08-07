@@ -27,7 +27,13 @@ const InitialFormData = {
   price: 0,
 };
 
-const NewItemDialog = ({ mode, showDialog, setShowDialog }) => {
+const NewItemDialog = ({
+  mode,
+  showDialog,
+  setShowDialog,
+  searchQuery,
+  setSearchQuery,
+}) => {
   const { error, success, selectedProduct } = useSelector(
     (state) => state.product
   );
@@ -50,8 +56,11 @@ const NewItemDialog = ({ mode, showDialog, setShowDialog }) => {
       setPriceError(false);
       dispatch(clearError());
       setShowDialog(false);
+      if (setSearchQuery) {
+        setSearchQuery({ ...searchQuery });
+      }
     }
-  }, [success, setShowDialog, dispatch]);
+  }, [success, setShowDialog, dispatch, setSearchQuery, searchQuery]);
 
   useEffect(() => {
     if (error || !success) {

@@ -11,6 +11,7 @@ const SearchBox = ({ searchQuery, setSearchQuery, placeholder, field }) => {
     if (event.key === "Enter") {
       setSearchQuery({ ...searchQuery, page: 1, [field]: event.target.value });
     }
+    setKeyword("");
   };
   return (
     <div className="search-box">

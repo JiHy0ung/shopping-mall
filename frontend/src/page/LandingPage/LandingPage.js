@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import ProductCard from "./components/ProductCard";
-import { Row, Col, Container } from "react-bootstrap";
+import { Row, Col, Container, Spinner } from "react-bootstrap";
 import { useSearchParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getProductList } from "../../features/product/productSlice";
@@ -9,7 +9,7 @@ import LandingHero from "./components/LandingHero";
 const LandingPage = () => {
   const dispatch = useDispatch();
 
-  const productList = useSelector((state) => state.product.productList);
+  const { productList, loading } = useSelector((state) => state.product);
   const [query] = useSearchParams();
   const name = query.get("name");
   useEffect(() => {
@@ -22,25 +22,33 @@ const LandingPage = () => {
 
   return (
     <>
-      <LandingHero />
       <Container>
-        <Row>
-          {productList.length > 0 ? (
-            productList.map((item) => (
-              <Col md={4} sm={12} key={item._id}>
-                <ProductCard item={item} />
-              </Col>
-            ))
-          ) : (
-            <div className="text-align-center empty-bag">
-              {name === "" ? (
-                <h2>등록된 상품이 없습니다!</h2>
-              ) : (
-                <h2>"{name}" 과 일치한 상품이 없습니다!</h2>
-              )}
-            </div>
-          )}
-        </Row>
+        <LandingHero />
+        {loading ? (
+          <div className="d-flex justify-content-center my-5">
+            <Spinner animation="border" role="status" variant="white">
+              <span className="visually-hidden">Loading...</span>
+            </Spinner>
+          </div>
+        ) : (
+          <Row>
+            {productList.length > 0 ? (
+              productList.map((item) => (
+                <Col md={4} sm={12} key={item._id}>
+                  <ProductCard item={item} />
+                </Col>
+              ))
+            ) : (
+              <div className="text-align-center empty-bag">
+                {name === "" ? (
+                  <h2>등록된 상품이 없습니다!</h2>
+                ) : (
+                  <h2>"{name}" 과 일치한 상품이 없습니다!</h2>
+                )}
+              </div>
+            )}
+          </Row>
+        )}
       </Container>
     </>
   );

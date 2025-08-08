@@ -8,8 +8,6 @@ import heroKrina from "../../../assets/hero-nike-karina.avif";
 import { Col, Row } from "react-bootstrap";
 
 const LandingHero = () => {
-  const isMobile = window.navigator.userAgent.indexOf("Mobile") !== -1;
-
   return (
     <div>
       <div className="landing-video-player-area">

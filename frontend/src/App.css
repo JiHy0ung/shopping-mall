@@ -397,10 +397,22 @@ body {
 .drop-down {
   margin-top: 20px;
 }
+.dropdown-item:focus {
+  background-color: black;
+}
 
 .add-button {
+  color: #111111;
+  font-weight: 500;
+  background-color: white;
   margin-top: 20px;
   width: 100%;
+}
+.add-button:hover {
+  background-color: #e5e5e5;
+}
+.add-button:focus {
+  box-shadow: none;
 }
 
 .hide {

@@ -46,14 +46,18 @@ const ProductDetail = () => {
     <Container className="product-detail-card">
       <Row>
         <Col sm={6}>
-          <img src={selectedProduct.image} className="w-100" alt="image" />
+          <img
+            src={selectedProduct.image}
+            className="product-detail-img"
+            alt="img"
+          />
         </Col>
         <Col className="product-info-area" sm={6}>
-          <div className="product-info">{selectedProduct.name}</div>
-          <div className="product-info">
+          <div className="product-info-name">{selectedProduct.name}</div>
+          <div className="product-info-price">
             ₩ {currencyFormat(selectedProduct.price)}
           </div>
-          <div className="product-info">{selectedProduct.description}</div>
+          <div className="product-info-desc">{selectedProduct.description}</div>
 
           <Dropdown
             className="drop-down size-drop-down"
@@ -63,7 +67,7 @@ const ProductDetail = () => {
           >
             <Dropdown.Toggle
               className="size-drop-down"
-              variant={sizeError ? "outline-danger" : "outline-dark"}
+              variant={sizeError ? "outline-danger" : ""}
               id="dropdown-basic"
               align="start"
             >
@@ -88,7 +92,11 @@ const ProductDetail = () => {
           <div className="warning-message">
             {sizeError && "사이즈를 선택해주세요."}
           </div>
-          <Button variant="dark" className="add-button" onClick={addItemToCart}>
+          <Button
+            variant="white"
+            className="add-button"
+            onClick={addItemToCart}
+          >
             추가
           </Button>
         </Col>

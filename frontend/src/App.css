@@ -453,6 +453,26 @@ body {
   align-items: center;
 }
 
+.side-menu-search {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  background-color: #111111;
+  padding: 4px 16px 4px 12px;
+  border-radius: 30px;
+}
+.side-menu-search input {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  outline: none;
+  border: none;
+  height: 36px;
+  background-color: #111111;
+}
+
 #sidebar-wrapper {
   min-height: 100vh !important;
   background-color: red;

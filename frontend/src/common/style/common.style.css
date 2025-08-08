@@ -210,3 +210,9 @@ tr {
   color: white;
   cursor: pointer;
 }
+
+@media screen and (max-width: 63rem) {
+  .footer-area ul {
+    flex-direction: column;
+  }
+}

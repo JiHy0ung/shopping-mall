@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser } from "@fortawesome/free-regular-svg-icons";
 import {
@@ -53,6 +53,7 @@ const Navbar = ({ user }) => {
       }
       navigate(`?name=${event.target.value}`);
       setSearchValue("");
+      setWidth(0);
     }
   };
 
@@ -60,40 +61,8 @@ const Navbar = ({ user }) => {
     dispatch(logout());
   };
 
-  const popover = (
-    <Popover id="popover-basic">
-      <Popover.Header as="h3">Popover right</Popover.Header>
-      <Popover.Body>
-        And here's some <strong>amazing</strong> content. It's very engaging.
-        right?
-      </Popover.Body>
-    </Popover>
-  );
-
   return (
     <div>
-      {showSearchBox && (
-        <div className="display-space-between mobile-search-box w-100">
-          <div className="search display-space-between w-100">
-            <div>
-              <FontAwesomeIcon className="search-icon" icon={faSearch} />
-              <input
-                type="text"
-                placeholder="검색"
-                value={searchValue}
-                onChange={handleSearchValue}
-                onKeyPress={onCheckEnter}
-              />
-            </div>
-            <button
-              className="closebtn"
-              onClick={() => setShowSearchBox(false)}
-            >
-              &times;
-            </button>
-          </div>
-        </div>
-      )}
       <div className="side-menu" style={{ width: width }}>
         <button className="closebtn" onClick={() => setWidth(0)}>
           <svg
@@ -114,6 +83,31 @@ const Navbar = ({ user }) => {
         </button>
 
         <div className="side-menu-list" id="menu-list">
+          <div className="side-menu-search">
+            <svg
+              onClick={() => setShowSearchBox(true)}
+              aria-hidden="true"
+              focusable="false"
+              viewBox="0 0 24 24"
+              role="img"
+              width="24px"
+              height="24px"
+              fill="none"
+            >
+              <path
+                stroke="currentColor"
+                stroke-width="1.5"
+                d="M13.962 16.296a6.716 6.716 0 01-3.462.954 6.728 6.728 0 01-4.773-1.977A6.728 6.728 0 013.75 10.5c0-1.864.755-3.551 1.977-4.773A6.728 6.728 0 0110.5 3.75c1.864 0 3.551.755 4.773 1.977A6.728 6.728 0 0117.25 10.5a6.726 6.726 0 01-.921 3.407c-.517.882-.434 1.988.289 2.711l3.853 3.853"
+              ></path>
+            </svg>
+            <input
+              type="text"
+              placeholder="검색"
+              value={searchValue}
+              onChange={handleSearchValue}
+              onKeyPress={onCheckEnter}
+            />
+          </div>
           {menuList.map((menu, index) => (
             <button key={index}>
               {menu}
@@ -375,22 +369,7 @@ const Navbar = ({ user }) => {
         </ul>
 
         <div className="icons-area">
-          <svg
-            aria-hidden="true"
-            focusable="false"
-            viewBox="0 0 24 24"
-            role="img"
-            width="24px"
-            height="24px"
-            fill="none"
-          >
-            <path
-              stroke="currentColor"
-              stroke-width="1.5"
-              d="M13.962 16.296a6.716 6.716 0 01-3.462.954 6.728 6.728 0 01-4.773-1.977A6.728 6.728 0 013.75 10.5c0-1.864.755-3.551 1.977-4.773A6.728 6.728 0 0110.5 3.75c1.864 0 3.551.755 4.773 1.977A6.728 6.728 0 0117.25 10.5a6.726 6.726 0 01-.921 3.407c-.517.882-.434 1.988.289 2.711l3.853 3.853"
-            ></path>
-          </svg>
-          {!isMobile && ( // admin페이지에서 같은 search-box스타일을 쓰고있음 그래서 여기서 서치박스 안보이는것 처리를 해줌
+          {!isMobile ? ( // admin페이지에서 같은 search-box스타일을 쓰고있음 그래서 여기서 서치박스 안보이는것 처리를 해줌
             <>
               <div className="landing-search-box ">
                 <div className="search-icon">
@@ -436,6 +415,23 @@ const Navbar = ({ user }) => {
                 </svg>
               </div>
             </>
+          ) : (
+            <svg
+              onClick={() => setWidth(320)}
+              aria-hidden="true"
+              focusable="false"
+              viewBox="0 0 24 24"
+              role="img"
+              width="24px"
+              height="24px"
+              fill="none"
+            >
+              <path
+                stroke="currentColor"
+                stroke-width="1.5"
+                d="M13.962 16.296a6.716 6.716 0 01-3.462.954 6.728 6.728 0 01-4.773-1.977A6.728 6.728 0 013.75 10.5c0-1.864.755-3.551 1.977-4.773A6.728 6.728 0 0110.5 3.75c1.864 0 3.551.755 4.773 1.977A6.728 6.728 0 0117.25 10.5a6.726 6.726 0 01-.921 3.407c-.517.882-.434 1.988.289 2.711l3.853 3.853"
+              ></path>
+            </svg>
           )}
           <div onClick={() => navigate("/cart")} className="cart-icon">
             <svg
@@ -453,9 +449,7 @@ const Navbar = ({ user }) => {
                 d="M8.25 8.25V6a2.25 2.25 0 012.25-2.25h3a2.25 2.25 0 110 4.5H3.75v8.25a3.75 3.75 0 003.75 3.75h9a3.75 3.75 0 003.75-3.75V8.25H17.5"
               ></path>
             </svg>
-            {!isMobile && (
-              <p className="cart-item-number">{` ${cartItemCount || 0}`}</p>
-            )}
+            <p className="cart-item-number">{` ${cartItemCount || 0}`}</p>
           </div>
           <div className="burger-menu hide">
             <svg

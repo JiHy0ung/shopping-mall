@@ -22,8 +22,8 @@ const LandingPage = () => {
 
   return (
     <>
+      <LandingHero />
       <Container>
-        <LandingHero />
         {loading ? (
           <div className="d-flex justify-content-center my-5">
             <Spinner animation="border" role="status" variant="white">

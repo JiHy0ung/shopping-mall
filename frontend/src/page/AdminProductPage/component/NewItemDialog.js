@@ -116,6 +116,9 @@ const NewItemDialog = ({
       dispatch(createProduct({ ...formData, stock: stockObj }));
     } else {
       // 상품 수정하기
+      dispatch(
+        editProduct({ id: selectedProduct._id, ...formData, stock: stockObj })
+      );
     }
   };
 

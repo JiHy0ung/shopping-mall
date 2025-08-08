@@ -19,4 +19,11 @@ router.put(
   productController.updateProduct
 );
 
+router.put(
+  "/delete/:id",
+  authController.authenticate,
+  authController.checkAdminPermission,
+  productController.deleteProduct
+);
+
 module.exports = router;

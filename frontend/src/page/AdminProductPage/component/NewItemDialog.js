@@ -56,11 +56,8 @@ const NewItemDialog = ({
       setPriceError(false);
       dispatch(clearError());
       setShowDialog(false);
-      if (setSearchQuery) {
-        setSearchQuery({ ...searchQuery });
-      }
     }
-  }, [success, setShowDialog, dispatch, setSearchQuery, searchQuery]);
+  }, [success, setShowDialog, dispatch]);
 
   useEffect(() => {
     if (error || !success) {
@@ -113,12 +110,16 @@ const NewItemDialog = ({
 
     if (mode === "new") {
       //새 상품 만들기
-      dispatch(createProduct({ ...formData, stock: stockObj }));
+      dispatch(createProduct({ ...formData, stock: stockObj })).then(() => {
+        dispatch(getProductList({ ...searchQuery }));
+      });
     } else {
       // 상품 수정하기
       dispatch(
         editProduct({ id: selectedProduct._id, ...formData, stock: stockObj })
-      );
+      ).then(() => {
+        dispatch(getProductList({ ...searchQuery }));
+      });
     }
   };
 

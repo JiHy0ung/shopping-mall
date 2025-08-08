@@ -48,7 +48,23 @@ export const createProduct = createAsyncThunk(
 
 export const deleteProduct = createAsyncThunk(
   "products/deleteProduct",
-  async (id, { dispatch, rejectWithValue }) => {}
+  async (id, { dispatch, rejectWithValue }) => {
+    try {
+      const response = await api.put(`/product/delete/${id}`);
+      if (response.status !== 200) {
+        throw new Error("Delete Product Failed", response.err);
+      }
+      dispatch(
+        showToastMessage({
+          message: "상품을 성공적으로 삭제했습니다",
+          status: "success",
+        })
+      );
+      return response.data.data;
+    } catch (err) {
+      return rejectWithValue(err.err);
+    }
+  }
 );
 
 export const editProduct = createAsyncThunk(
@@ -57,7 +73,7 @@ export const editProduct = createAsyncThunk(
     try {
       const response = await api.put(`/product/${id}`, formData);
       if (response.status !== 200) {
-        throw new Error("Create New Product Failed", response.err);
+        throw new Error("Edit Product Failed", response.err);
       }
       dispatch(
         showToastMessage({

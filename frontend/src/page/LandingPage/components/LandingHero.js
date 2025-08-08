@@ -8,19 +8,23 @@ import heroKrina from "../../../assets/hero-nike-karina.avif";
 import { Col, Row } from "react-bootstrap";
 
 const LandingHero = () => {
+  const isMobile = window.navigator.userAgent.indexOf("Mobile") !== -1;
+
   return (
     <div>
-      <Player
-        autoPlay={true}
-        loop={true}
-        muted={true}
-        playsInline={true}
-        controls={false}
-        className="landing-video-player"
-      >
-        <ControlBar disableDefaultControls={true} />
-        <source src={nikeVideo} />
-      </Player>
+      <div className="landing-video-player-area">
+        <Player
+          autoPlay={true}
+          loop={true}
+          muted={true}
+          playsInline={true}
+          controls={false}
+          className="landing-video-player"
+        >
+          <ControlBar disableDefaultControls={true} />
+          <source src={nikeVideo} />
+        </Player>
+      </div>
 
       <div className="landing-main-text-area">
         <h3 className="landing-main-title">혁신적 실루엣, 에어와 만나다</h3>

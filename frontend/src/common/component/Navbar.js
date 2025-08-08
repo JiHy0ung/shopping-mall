@@ -251,19 +251,19 @@ const Navbar = ({ user }) => {
 
             <div onClick={() => navigate("/")} className="nav-icon">
               {!isMobile && (
-                <>
+                <div className="nav-vertical-line">
                   <span style={{ cursor: "pointer" }}>매장 찾기</span>
                   <div className="vertical-line"></div>
-                </>
+                </div>
               )}
             </div>
 
             <div onClick={() => navigate("/")} className="nav-icon">
               {!isMobile && (
-                <>
+                <div className="nav-vertical-line">
                   <span style={{ cursor: "pointer" }}>고객센터</span>
                   <div className="vertical-line"></div>
-                </>
+                </div>
               )}
             </div>
 

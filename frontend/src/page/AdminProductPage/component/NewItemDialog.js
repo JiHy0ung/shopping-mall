@@ -98,15 +98,27 @@ const NewItemDialog = ({
       setStockError(true);
       return;
     }
+
     if (formData.price < 1) {
       setPriceError(true);
       return;
     }
     // 재고를 배열에서 객체로 바꿔주기
     // [['M',2]] 에서 {M:2}로
+    let hasNegative = false;
+
     const stockObj = Object.fromEntries(
-      stock.map(([size, qty]) => [size, parseInt(qty)])
+      stock.map(([size, qty]) => {
+        const Qty = parseInt(qty);
+        if (Qty < 0) hasNegative = true;
+        return [size, Qty];
+      })
     );
+
+    if (hasNegative) {
+      setStockError(true);
+      return;
+    }
 
     if (mode === "new") {
       //새 상품 만들기
@@ -238,7 +250,7 @@ const NewItemDialog = ({
 
         <Form.Group className="mb-3" controlId="stock">
           {stockError && (
-            <span className="error-message">재고를 추가해주세요</span>
+            <span className="error-message">재고를 올바르게 추가해주세요</span>
           )}
           <div className="display-flex">
             <Form.Label className="mr-1">Stock</Form.Label>

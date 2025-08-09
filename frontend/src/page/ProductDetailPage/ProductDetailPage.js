@@ -93,7 +93,7 @@ const ProductDetail = () => {
                     </Dropdown.Item>
                   ) : (
                     <Dropdown.Item eventKey={item} disabled={true} key={index}>
-                      {item.toUpperCase()}
+                      {item.toUpperCase()} (품절)
                     </Dropdown.Item>
                   )
                 )}

@@ -1,6 +1,3 @@
-.product-card-cart {
-  margin-bottom: 10px;
-}
 .qty-dropdown {
   max-width: 400px;
 }
@@ -9,7 +6,8 @@
   border: 1px solid gray;
 }
 .product-card-cart {
-  background-color: ghostwhite;
+  margin-bottom: 10px;
+  background-color: #1f1f21;
   padding: 10px;
 }
 .receipt-container {
@@ -21,9 +19,14 @@
   padding: 0;
   border-bottom: 1px solid black;
 }
-
 .receipt-list li {
   padding-bottom: 10px;
+}
+
+.receipt-area {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 
 .receipt-title {
@@ -31,10 +34,16 @@
 }
 
 .payment-button {
+  background-color: white;
+  font-weight: 500;
   width: 100%;
   padding: 16px;
   margin-bottom: 20px;
 }
+.payment-button:hover {
+  background-color: rgb(227, 227, 227);
+}
+
 .text-align-center {
   text-align: center;
 }

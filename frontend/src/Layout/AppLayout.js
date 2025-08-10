@@ -6,7 +6,7 @@ import Sidebar from "../common/component/Sidebar";
 import Navbar from "../common/component/Navbar";
 import ToastMessage from "../common/component/ToastMessage";
 import { loginWithToken } from "../features/user/userSlice";
-import { getCartQty } from "../features/cart/cartSlice";
+import { getCartQty, initialCart } from "../features/cart/cartSlice";
 import Footer from "../common/component/Footer";
 
 const AppLayout = ({ children }) => {
@@ -14,14 +14,19 @@ const AppLayout = ({ children }) => {
   const dispatch = useDispatch();
 
   const { user } = useSelector((state) => state.user);
+
   useEffect(() => {
     dispatch(loginWithToken());
-  }, []);
+  }, [dispatch]);
+
   useEffect(() => {
     if (user) {
       dispatch(getCartQty());
+    } else {
+      dispatch(initialCart());
     }
-  }, [user]);
+  }, [user, dispatch]);
+
   return (
     <div className="overflow-x">
       <ToastMessage />

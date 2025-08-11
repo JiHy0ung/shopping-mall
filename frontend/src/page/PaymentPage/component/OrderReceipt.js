@@ -8,7 +8,7 @@ const OrderReceipt = ({ cartList, totalPrice }) => {
   const location = useLocation();
   const navigate = useNavigate();
 
-  console.log("totalPrice", totalPrice);
+  // console.log("totalPrice", totalPrice);
 
   return (
     <div className="receipt-container">
@@ -20,7 +20,12 @@ const OrderReceipt = ({ cartList, totalPrice }) => {
               <h6>
                 <strong>{item.productId.name}</strong>
               </h6>
-              <p>{currencyFormat(item.productId.price * item.qty)} 원</p>
+              <p>
+                <strong>{item.qty}</strong> X{" "}
+                <strong>
+                  {currencyFormat(item.productId.price * item.qty)} 원
+                </strong>
+              </p>
             </li>
           ))}
       </ul>
@@ -32,8 +37,12 @@ const OrderReceipt = ({ cartList, totalPrice }) => {
           <strong>{currencyFormat(totalPrice)} 원</strong>
         </div>
       </div>
-      {location.pathname.includes("/cart") && cartList.length > 0 && (
+      {location.pathname.includes("/cart") && cartList.length > 0 ? (
         <Button className="payment-button" onClick={() => navigate("/payment")}>
+          결제 계속하기
+        </Button>
+      ) : (
+        <Button className="payment-button" disabled>
           결제 계속하기
         </Button>
       )}

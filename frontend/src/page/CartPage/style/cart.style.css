@@ -40,10 +40,19 @@
   width: 100%;
   padding: 16px;
   margin-bottom: 20px;
+  outline: none;
+  border: 1px solid white;
 }
 .payment-button:hover {
-  color: #111111;
-  background-color: rgb(227, 227, 227);
+  color: white;
+  background-color: #111111;
+  border: 1px solid white;
+  outline: none;
+}
+.payment-button:disabled {
+  color: whitesmoke;
+  background-color: gray;
+  border-color: gray;
 }
 
 .text-align-center {

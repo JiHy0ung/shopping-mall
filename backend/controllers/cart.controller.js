@@ -61,7 +61,10 @@ cartController.deleteCartItem = async (req, res) => {
   try {
     const { userId } = req;
     const { id } = req.params;
-    const cart = await Cart.findOne({ userId });
+    const cart = await Cart.findOne({ userId }).populate({
+      path: "items",
+      populate: { path: "productId", model: "Product" },
+    });
     cart.items = cart.items.filter((item) => !item._id.equals(id));
     await cart.save();
     res.status(200).json({

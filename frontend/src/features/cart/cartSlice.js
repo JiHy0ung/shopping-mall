@@ -168,7 +168,6 @@ const cartSlice = createSlice({
       .addCase(updateQty.fulfilled, (state, action) => {
         state.loading = false;
         state.error = "";
-        state.cartItemCount = action.payload.length;
         state.cartList = action.payload;
         state.totalPrice = action.payload.reduce(
           (total, item) => total + item.productId.price * item.qty,

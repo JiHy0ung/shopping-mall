@@ -6,6 +6,7 @@ import CartProductCard from "./component/CartProductCard";
 import OrderReceipt from "../PaymentPage/component/OrderReceipt";
 import "./style/cart.style.css";
 import { getCartList } from "../../features/cart/cartSlice";
+import { clearOrderNum } from "../../features/order/orderSlice";
 
 const CartPage = () => {
   const dispatch = useDispatch();
@@ -14,6 +15,7 @@ const CartPage = () => {
   useEffect(() => {
     //카트리스트 불러오기
     dispatch(getCartList());
+    dispatch(clearOrderNum());
   }, [dispatch]);
 
   return (

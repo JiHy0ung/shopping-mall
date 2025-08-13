@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 const Product = require("./Product");
 const User = require("./User");
+const Cart = require("./Cart");
 const Schema = mongoose.Schema;
 
 const orderSchema = Schema(
@@ -18,6 +19,10 @@ const orderSchema = Schema(
         price: { type: Number, required: true },
       },
     ],
+    orderNum: {
+      type: String,
+      required: true,
+    },
   },
   { timestamps: true }
 );
@@ -29,6 +34,13 @@ orderSchema.methods.toJSON = function () {
   delete obj.updatedAt;
   return obj;
 };
+
+// 오더가 저장이 되면 카트를 비워줌.
+orderSchema.post("save", async function () {
+  const cart = await Cart.findOne({ userId: this.userId });
+  cart.items = [];
+  await cart.save();
+});
 
 const Order = mongoose.model("Order", orderSchema);
 module.exports = Order;

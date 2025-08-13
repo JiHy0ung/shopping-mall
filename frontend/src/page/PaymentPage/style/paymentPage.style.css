@@ -1,49 +1,63 @@
-.payment-title{
-    margin-top:30px;
-    margin-bottom:20px;
+.payment-title {
+  margin-top: 30px;
+  margin-bottom: 20px;
 }
-.rccs{
-    margin:0 !important;
-}
-
-
-.form-area input{
-    margin-bottom: 10px;
-}
-.pay-button{
-    margin-top: 30px;
+.rccs {
+  margin: 0 !important;
 }
 
-.confirmation-page{
-    display:flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: white;
-    padding-top:20px;
-    padding-bottom: 40px;
-    width: 90%;
+.form-area input {
+  margin-bottom: 10px;
+}
+.pay-button {
+  margin-top: 30px;
 }
 
-.check-image{
-    padding:20px;
+.confirmation-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 20px;
+  padding-bottom: 40px;
+  width: 90%;
 }
-.mobile-receipt-area{
-    display:none;
+.confirmation-page a {
+  margin-top: 2rem;
+  border: 1px solid white;
+  outline: none;
+  border-radius: 4px;
+  padding: 0.5rem 1rem;
+  background-color: white;
+  transition: all 0.3s ease;
+  font-weight: 500;
+  text-decoration: none;
+  color: #111111;
+}
+.confirmation-page a:hover {
+  background-color: black;
+  color: white;
+}
+
+.check-image {
+  padding: 20px;
+}
+.mobile-receipt-area {
+  display: none;
 }
 
 @media screen and (max-width: 63rem) {
-    .form-area{
-        margin-top: 20px;
-    }
+  .form-area {
+    margin-top: 20px;
+  }
 
-    .receipt-area{
-        display: none;
-    }
-    .mobile-receipt-area{
-        display:block;
-    }
+  .receipt-area {
+    display: none;
+  }
+  .mobile-receipt-area {
+    display: block;
+  }
 
-    /* .pay-button{
+  /* .pay-button{
         position: absolute;
         bottom: 0;
     } */

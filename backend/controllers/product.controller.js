@@ -139,7 +139,7 @@ productController.checkStock = async (item) => {
     if (product.stock[item.size] < item.qty) {
       return {
         isVerify: false,
-        message: `${product.name}의 ${item.size} 재고가 부족합니다.`,
+        message: `${product.name}의 ${item.size}사이즈 재고가 부족합니다.`,
       };
     }
 

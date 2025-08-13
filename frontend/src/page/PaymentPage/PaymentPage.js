@@ -32,7 +32,7 @@ const PaymentPage = () => {
 
   useEffect(() => {
     // 오더번호를 받으면 어디로 갈까?
-  }, [orderNum]);
+  }, []);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -77,9 +77,10 @@ const PaymentPage = () => {
     setCardValue({ ...cardValue, focus: e.target.name });
   };
 
+  // 주문할 아이템이 없다면 주문하기로 안넘어가게 막음
   if (cartList?.length === 0) {
     navigate("/cart");
-  } // 주문할 아이템이 없다면 주문하기로 안넘어가게 막음
+  }
 
   return (
     <Container>

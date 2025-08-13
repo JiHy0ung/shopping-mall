@@ -23,8 +23,15 @@ export const createOrder = createAsyncThunk(
       if (response.status !== 200)
         throw new Error("Create Order Failed", response.err);
 
+      dispatch(getCartQty());
       return response.data.orderNum;
     } catch (err) {
+      dispatch(
+        showToastMessage({
+          message: err.err,
+          status: "error",
+        })
+      );
       return rejectWithValue(err.err);
     }
   }
@@ -53,6 +60,9 @@ const orderSlice = createSlice({
     setSelectedOrder: (state, action) => {
       state.selectedOrder = action.payload;
     },
+    clearOrderNum: (state) => {
+      state.orderNum = null;
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -71,5 +81,5 @@ const orderSlice = createSlice({
   },
 });
 
-export const { setSelectedOrder } = orderSlice.actions;
+export const { setSelectedOrder, clearOrderNum } = orderSlice.actions;
 export default orderSlice.reducer;

@@ -46,36 +46,32 @@ const Login = () => {
           </div>
         )}
         <Form className="login-form" onSubmit={handleLoginWithEmail}>
+          <h1>로그인</h1>
           <Form.Group className="mb-3" controlId="formBasicEmail">
-            <Form.Label>Email address</Form.Label>
             <Form.Control
               type="email"
-              placeholder="Enter email"
+              placeholder="이메일*"
               required
               onChange={(event) => setEmail(event.target.value)}
             />
           </Form.Group>
 
           <Form.Group className="mb-3" controlId="formBasicPassword">
-            <Form.Label>Password</Form.Label>
             <Form.Control
               type="password"
-              placeholder="Password"
+              placeholder="비밀번호*"
               required
               onChange={(event) => setPassword(event.target.value)}
             />
           </Form.Group>
-          <div className="display-space-between login-button-area">
-            <Button variant="danger" type="submit">
-              Login
-            </Button>
+          <div className="login-button-area">
+            <Button type="submit">로그인</Button>
             <div>
-              아직 계정이 없으세요?<Link to="/register">회원가입 하기</Link>{" "}
+              아직 계정이 없으세요? <Link to="/register"> 회원가입 하기</Link>
             </div>
           </div>
 
           <div className="text-align-center mt-2">
-            <p>-외부 계정으로 로그인하기-</p>
             <div className="display-center">
               <GoogleOAuthProvider clientId={GOOGLE_CLIENT_ID}>
                 <GoogleLogin

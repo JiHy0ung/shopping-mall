@@ -90,12 +90,33 @@ body {
   align-items: center;
   gap: 24px;
 }
+.nav-header-brand-list a {
+  display: flex;
+  color: white;
+  font-weight: 500;
+  text-decoration: none;
+  gap: 8px;
+  padding: 8px 24px 8px 36px;
+}
 .nav-header-brand-list svg {
   fill: white;
 }
 
+.auth-nav-icon {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+  min-width: 70px;
+}
+.auth-nav-icon span {
+  font-family: "Noto Sans KR";
+  font-weight: 500;
+  font-size: 12px;
+}
+
 .nav-icon {
   margin-bottom: 5px;
+  min-width: 48px;
 }
 .nav-icon span {
   font-family: "Noto Sans KR";
@@ -434,6 +455,17 @@ body {
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
 
+.side-menu-auth {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  font-weight: 500;
+  padding: 1.5rem 3.5rem;
+}
+.side-menu-auth div {
+  cursor: pointer;
+}
+
 .side-menu-list button {
   display: flex;
   justify-content: space-between;
@@ -570,6 +602,9 @@ body {
   .nav-icon:last-child {
     margin-right: 0px;
   }
+  .nav-icon div {
+    display: none;
+  }
   .nav-header {
     display: flex;
     justify-content: center;
@@ -602,24 +637,5 @@ body {
     align-items: start;
     width: 100%;
     list-style: none !important;
-  }
-  .nav-header-brand-list a {
-    padding: 8px 24px 8px 30px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-decoration: none;
-    font-weight: 500;
-  }
-  .nav-header-brand-list svg {
-    width: 32px;
-    height: 32px;
-  }
-  .nav-header-brand-list p {
-    margin: 0;
-    font-size: 16px;
-    color: white;
-    list-style: none !important;
-    padding-left: 12px;
   }
 }

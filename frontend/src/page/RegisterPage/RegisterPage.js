@@ -59,43 +59,40 @@ const RegisterPage = () => {
           </Alert>
         </div>
       )}
-      <Form onSubmit={register}>
+      <Form onSubmit={register} className="login-form">
+        <h1>회원가입</h1>
         <Form.Group className="mb-3">
-          <Form.Label>Email</Form.Label>
           <Form.Control
             type="email"
             id="email"
-            placeholder="Enter email"
+            placeholder="이메일*"
             onChange={handleChange}
             required
           />
         </Form.Group>
         <Form.Group className="mb-3">
-          <Form.Label>Name</Form.Label>
           <Form.Control
             type="text"
             id="name"
-            placeholder="Enter name"
+            placeholder="이름*"
             onChange={handleChange}
             required
           />
         </Form.Group>
         <Form.Group className="mb-3">
-          <Form.Label>Password</Form.Label>
           <Form.Control
             type="password"
             id="password"
-            placeholder="Password"
+            placeholder="비밀번호*"
             onChange={handleChange}
             required
           />
         </Form.Group>
         <Form.Group className="mb-3">
-          <Form.Label>Confirm Password</Form.Label>
           <Form.Control
             type="password"
             id="confirmPassword"
-            placeholder="Confirm Password"
+            placeholder="비밀번호 확인*"
             onChange={handleChange}
             required
             isInvalid={passwordError}
@@ -104,7 +101,7 @@ const RegisterPage = () => {
             {passwordError}
           </Form.Control.Feedback>
         </Form.Group>
-        <Form.Group className="mb-3">
+        <Form.Group className="mb-1">
           <Form.Check
             type="checkbox"
             label="이용약관에 동의합니다"
@@ -114,9 +111,11 @@ const RegisterPage = () => {
             checked={formData.policy}
           />
         </Form.Group>
-        <Button variant="danger" type="submit">
-          회원가입
-        </Button>
+        <div className="login-button-area">
+          <Button variant="danger" type="submit">
+            회원가입
+          </Button>
+        </div>
       </Form>
     </Container>
   );

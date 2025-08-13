@@ -108,6 +108,12 @@ const Navbar = ({ user }) => {
               onKeyPress={onCheckEnter}
             />
           </div>
+
+          <div className="side-menu-auth">
+            <div onClick={() => navigate("/register")}>가입하기</div>
+            <div onClick={() => navigate("/login")}>로그인</div>
+          </div>
+
           {menuList.map((menu, index) => (
             <button key={index}>
               {menu}
@@ -321,15 +327,22 @@ const Navbar = ({ user }) => {
               </div>
             ) : (
               <>
-                <div onClick={() => navigate("/register")} className="nav-icon">
+                <div
+                  onClick={() => navigate("/register")}
+                  className="auth-nav-icon"
+                >
                   {!isMobile && (
-                    <span style={{ cursor: "pointer" }}>가입하기</span>
+                    <div className="nav-vertical-line">
+                      <span style={{ cursor: "pointer" }}>가입하기</span>
+                      <div className="vertical-line"></div>
+                    </div>
                   )}
                 </div>
 
-                <div className="vertical-line"></div>
-
-                <div onClick={() => navigate("/login")} className="nav-icon">
+                <div
+                  onClick={() => navigate("/login")}
+                  className="auth-nav-icon"
+                >
                   {!isMobile && (
                     <span style={{ cursor: "pointer" }}>로그인</span>
                   )}

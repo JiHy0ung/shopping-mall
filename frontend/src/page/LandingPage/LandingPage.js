@@ -5,6 +5,7 @@ import { useSearchParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getProductList } from "../../features/product/productSlice";
 import LandingHero from "./components/LandingHero";
+import LandingSkeleton from "../../components/skeletons/LandingSkeleton";
 
 const LandingPage = () => {
   const dispatch = useDispatch();
@@ -21,16 +22,16 @@ const LandingPage = () => {
     );
   }, [query]);
 
+  if (loading) {
+    return <LandingSkeleton />;
+  }
+
   return (
     <>
       <LandingHero />
       <Container>
         {loading ? (
-          <div className="d-flex justify-content-center my-5">
-            <Spinner animation="border" role="status" variant="white">
-              <span className="visually-hidden">Loading...</span>
-            </Spinner>
-          </div>
+          <LandingSkeleton />
         ) : (
           <Row>
             {productList.length > 0 ? (

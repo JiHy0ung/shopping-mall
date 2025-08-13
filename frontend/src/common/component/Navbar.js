@@ -326,28 +326,24 @@ const Navbar = ({ user }) => {
                 )}
               </div>
             ) : (
-              <>
+              <div className="auth-nav">
                 <div
                   onClick={() => navigate("/register")}
                   className="auth-nav-icon"
                 >
-                  {!isMobile && (
-                    <div className="nav-vertical-line">
-                      <span style={{ cursor: "pointer" }}>가입하기</span>
-                      <div className="vertical-line"></div>
-                    </div>
-                  )}
+                  <div className="nav-vertical-line">
+                    <span style={{ cursor: "pointer" }}>가입하기</span>
+                    <div className="vertical-line"></div>
+                  </div>
                 </div>
 
                 <div
                   onClick={() => navigate("/login")}
                   className="auth-nav-icon"
                 >
-                  {!isMobile && (
-                    <span style={{ cursor: "pointer" }}>로그인</span>
-                  )}
+                  <span style={{ cursor: "pointer" }}>로그인</span>
                 </div>
-              </>
+              </div>
             )}
           </div>
         </div>

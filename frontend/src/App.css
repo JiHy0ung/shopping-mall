@@ -81,6 +81,7 @@ body {
   justify-content: space-between;
   align-items: center;
   height: 36px;
+  width: 100%;
   background-color: #111111;
   padding: 0px 48px;
 }
@@ -96,17 +97,22 @@ body {
   font-weight: 500;
   text-decoration: none;
   gap: 8px;
-  padding: 8px 24px 8px 36px;
 }
 .nav-header-brand-list svg {
   fill: white;
 }
 
+.auth-nav {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  margin-top: 4px;
+}
 .auth-nav-icon {
   display: flex;
   align-items: center;
   margin-bottom: 5px;
-  min-width: 70px;
+  min-width: fit-content;
 }
 .auth-nav-icon span {
   font-family: "Noto Sans KR";
@@ -114,10 +120,6 @@ body {
   font-size: 12px;
 }
 
-.nav-icon {
-  margin-bottom: 5px;
-  min-width: 48px;
-}
 .nav-icon span {
   font-family: "Noto Sans KR";
   font-weight: 500;
@@ -637,5 +639,13 @@ body {
     align-items: start;
     width: 100%;
     list-style: none !important;
+  }
+  .nav-header-brand-list a {
+    display: flex;
+    color: white;
+    font-weight: 500;
+    text-decoration: none;
+    gap: 8px;
+    padding: 8px 24px 8px 36px;
   }
 }

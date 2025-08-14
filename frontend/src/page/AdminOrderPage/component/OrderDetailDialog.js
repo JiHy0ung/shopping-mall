@@ -24,7 +24,7 @@ const OrderDetailDialog = ({ open, handleClose }) => {
   return (
     <Modal show={open} onHide={handleClose}>
       <Modal.Header closeButton>
-        <Modal.Title>Order Detail</Modal.Title>
+        <Modal.Title>예약 정보</Modal.Title>
       </Modal.Header>
       <Modal.Body>
         <p>예약번호: {selectedOrder.orderNum}</p>
@@ -36,7 +36,7 @@ const OrderDetailDialog = ({ open, handleClose }) => {
         <p>
           연락처:
           {`${
-            selectedOrder.contact.firstName + selectedOrder.contact.lastName
+            selectedOrder.contact.lastName + selectedOrder.contact.firstName
           } ${selectedOrder.contact.contact}`}
         </p>
         <p>주문내역</p>
@@ -71,7 +71,7 @@ const OrderDetailDialog = ({ open, handleClose }) => {
         </div>
         <Form onSubmit={submitStatus}>
           <Form.Group as={Col} controlId="status">
-            <Form.Label>Status</Form.Label>
+            <Form.Label>상품 상태</Form.Label>
             <Form.Select value={orderStatus} onChange={handleStatusChange}>
               {ORDER_STATUS.map((item, idx) => (
                 <option key={idx} value={item.toLowerCase()}>

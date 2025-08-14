@@ -1,9 +1,9 @@
 .cart-container {
-  padding: 3rem 0;
+  padding: 20px 0;
 }
 .cart-container h3 {
   padding-left: 12px;
-  margin-bottom: 32px;
+  margin-bottom: 20px;
 }
 
 .qty-dropdown {
@@ -50,6 +50,12 @@
 }
 .qty-add-button:hover {
   background-color: #111111;
+}
+
+.cart-item-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .cart-item-size span {
@@ -138,6 +144,21 @@
   text-align: center;
 }
 .empty-bag {
-  /* background-color: white; */
   padding: 20px;
+}
+
+@media screen and (max-width: 63rem) {
+  .product-card-cart {
+    margin-inline: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .cart-item-info {
+    flex-direction: column;
+    align-items: start;
+  }
+
+  .pay-padding {
+    padding-inline: 24px;
+  }
 }

@@ -19,7 +19,7 @@ const CartProductCard = ({ item }) => {
   return (
     <div className="product-card-cart">
       <Row>
-        <Col md={3} xs={12}>
+        <Col md={3} xs={5}>
           <img
             className="cart-item-img"
             src={item.productId.image}
@@ -96,8 +96,8 @@ const CartProductCard = ({ item }) => {
             </button>
           </div>
         </Col>
-        <Col md={9} xs={12}>
-          <div className="display-flex space-between">
+        <Col md={9} xs={7}>
+          <div className="cart-item-info">
             <h4>{item.productId.name}</h4>
             <strong>
               총 {currencyFormat(item.productId.price * item.qty)} 원

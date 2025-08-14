@@ -93,74 +93,76 @@ const PaymentPage = () => {
       <Row>
         <Col lg={7}>
           <div>
-            <h2 className="mb-2">배송 주소</h2>
+            <h3 className="mt-2 mb-2 pay-padding">배송 주소</h3>
             <div>
               <Form onSubmit={handleSubmit}>
-                <Row className="mb-3">
-                  <Form.Group as={Col} controlId="lastName">
-                    <Form.Label>성</Form.Label>
+                <div className="pay-padding">
+                  <Row className="mb-3">
+                    <Form.Group as={Col} controlId="lastName">
+                      <Form.Label>성</Form.Label>
+                      <Form.Control
+                        type="text"
+                        onChange={handleFormChange}
+                        required
+                        name="lastName"
+                      />
+                    </Form.Group>
+
+                    <Form.Group as={Col} controlId="firstName">
+                      <Form.Label>이름</Form.Label>
+                      <Form.Control
+                        type="text"
+                        onChange={handleFormChange}
+                        required
+                        name="firstName"
+                      />
+                    </Form.Group>
+                  </Row>
+
+                  <Form.Group className="mb-3" controlId="formGridAddress1">
+                    <Form.Label>연락처</Form.Label>
                     <Form.Control
-                      type="text"
+                      placeholder="010-xxx-xxxxx"
                       onChange={handleFormChange}
                       required
-                      name="lastName"
+                      name="contact"
                     />
                   </Form.Group>
 
-                  <Form.Group as={Col} controlId="firstName">
-                    <Form.Label>이름</Form.Label>
+                  <Form.Group className="mb-3" controlId="formGridAddress2">
+                    <Form.Label>주소</Form.Label>
                     <Form.Control
-                      type="text"
+                      placeholder="Apartment, studio, or floor"
                       onChange={handleFormChange}
                       required
-                      name="firstName"
-                    />
-                  </Form.Group>
-                </Row>
-
-                <Form.Group className="mb-3" controlId="formGridAddress1">
-                  <Form.Label>연락처</Form.Label>
-                  <Form.Control
-                    placeholder="010-xxx-xxxxx"
-                    onChange={handleFormChange}
-                    required
-                    name="contact"
-                  />
-                </Form.Group>
-
-                <Form.Group className="mb-3" controlId="formGridAddress2">
-                  <Form.Label>주소</Form.Label>
-                  <Form.Control
-                    placeholder="Apartment, studio, or floor"
-                    onChange={handleFormChange}
-                    required
-                    name="address"
-                  />
-                </Form.Group>
-
-                <Row className="mb-3">
-                  <Form.Group as={Col} controlId="formGridCity">
-                    <Form.Label>City</Form.Label>
-                    <Form.Control
-                      onChange={handleFormChange}
-                      required
-                      name="city"
+                      name="address"
                     />
                   </Form.Group>
 
-                  <Form.Group as={Col} controlId="formGridZip">
-                    <Form.Label>Zip</Form.Label>
-                    <Form.Control
-                      onChange={handleFormChange}
-                      required
-                      name="zip"
-                    />
-                  </Form.Group>
-                </Row>
+                  <Row className="mb-3">
+                    <Form.Group as={Col} controlId="formGridCity">
+                      <Form.Label>City</Form.Label>
+                      <Form.Control
+                        onChange={handleFormChange}
+                        required
+                        name="city"
+                      />
+                    </Form.Group>
+
+                    <Form.Group as={Col} controlId="formGridZip">
+                      <Form.Label>Zip</Form.Label>
+                      <Form.Control
+                        onChange={handleFormChange}
+                        required
+                        name="zip"
+                      />
+                    </Form.Group>
+                  </Row>
+                </div>
                 <div className="mobile-receipt-area">
                   <OrderReceipt cartList={cartList} totalPrice={totalPrice} />
                 </div>
-                <div>
+                <div className="pay-padding">
                   <h2 className="payment-title">결제 정보</h2>
                   <PaymentForm
                     handleInputFocus={handleInputFocus}
@@ -169,18 +171,20 @@ const PaymentPage = () => {
                   />
                 </div>
 
-                <Button
-                  variant="dark"
-                  className="payment-button pay-button"
-                  type="submit"
-                >
-                  결제하기
-                </Button>
+                <div className="pay-padding">
+                  <Button
+                    variant="dark"
+                    className="payment-button pay-button"
+                    type="submit"
+                  >
+                    결제하기
+                  </Button>
+                </div>
               </Form>
             </div>
           </div>
         </Col>
-        <Col lg={5} className="receipt-area">
+        <Col lg={5} className="receipt-area mt-2">
           <OrderReceipt cartList={cartList} totalPrice={totalPrice} />
         </Col>
       </Row>

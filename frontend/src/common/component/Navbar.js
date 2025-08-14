@@ -283,7 +283,12 @@ const Navbar = ({ user }) => {
                   {user && user.level === "customer" && (
                     <>
                       <p className="popover-content">프로필</p>
-                      <p className="popover-content">주문</p>
+                      <p
+                        className="popover-content"
+                        onClick={() => navigate("/account/purchase")}
+                      >
+                        주문
+                      </p>
                       <p className="popover-content">위시리스트</p>
                       <p className="popover-content">이벤트</p>
                       <p className="popover-content">회원정보관리</p>

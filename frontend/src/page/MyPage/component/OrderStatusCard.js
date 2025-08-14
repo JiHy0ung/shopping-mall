@@ -7,14 +7,14 @@ const OrderStatusCard = ({ orderItem }) => {
   return (
     <div>
       <Row className="status-card">
-        <Col xs={2}>
+        <Col xs={4}>
           <img
             src={orderItem.items[0]?.productId?.image}
-            alt={orderItem.items[0]?.productId?.image}
-            height={96}
+            alt={orderItem.items[0]?.productId?.name}
           />
         </Col>
-        <Col xs={8} className="order-info">
+        <Col xs={7} className="order-info">
+          <p style={{ color: badgeBg[orderItem.status] }}>{orderItem.status}</p>
           <div>
             <strong>주문번호: {orderItem.orderNum}</strong>
           </div>
@@ -26,10 +26,6 @@ const OrderStatusCard = ({ orderItem }) => {
             {orderItem.items.length > 1 && `외 ${orderItem.items.length - 1}개`}
           </div>
           <div>₩ {currencyFormat(orderItem.totalPrice)}</div>
-        </Col>
-        <Col md={2} className="vertical-middle">
-          <div className="text-align-center text-12">주문상태</div>
-          <Badge bg={badgeBg[orderItem.status]}>{orderItem.status}</Badge>
         </Col>
       </Row>
     </div>

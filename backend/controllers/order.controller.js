@@ -38,10 +38,24 @@ orderController.createOrder = async (req, res) => {
 
     console.log("newOrder.orderNum", newOrder.orderNum);
   } catch (err) {
-    res.status(400).json({
-      status: "Create Order Failed",
-      err: err.message,
+    res.status(400).json({ status: "Create Order Failed", err: err.message });
+  }
+};
+
+orderController.getOrder = async (req, res) => {
+  try {
+    const { userId } = req;
+    const orders = await Order.find({ userId }).populate({
+      path: "items",
+      populate: {
+        path: "productId",
+        model: "Product",
+      },
     });
+
+    res.status(200).json({ status: "Get Orders Success", data: orders });
+  } catch (err) {
+    res.status(400).json({ status: "Get Orders Failed", err: err.message });
   }
 };
 

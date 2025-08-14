@@ -7,7 +7,7 @@ const Schema = mongoose.Schema;
 const orderSchema = Schema(
   {
     userId: { type: mongoose.ObjectId, ref: User },
-    status: { type: String, required: true, default: "preparing" },
+    status: { type: String, required: true, default: "상품 준비 중" },
     shipTo: { type: Object, required: true },
     contact: { type: Object, required: true },
     totalPrice: { type: Number, required: true, default: 0 },
@@ -30,7 +30,7 @@ const orderSchema = Schema(
 orderSchema.methods.toJSON = function () {
   const obj = this._doc;
   delete obj.__v;
-  delete obj.createdAt;
+  // delete obj.createdAt;
   delete obj.updatedAt;
   return obj;
 };

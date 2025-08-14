@@ -17,7 +17,8 @@ const CartPage = () => {
   }, [dispatch]);
 
   return (
-    <Container>
+    <Container className="cart-container">
+      <h3>장바구니</h3>
       <Row>
         <Col xs={12} md={7}>
           {cartList.length > 0 ? (

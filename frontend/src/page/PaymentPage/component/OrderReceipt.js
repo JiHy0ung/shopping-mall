@@ -28,10 +28,14 @@ const OrderReceipt = ({ cartList, totalPrice }) => {
               </p>
             </li>
           ))}
+        <li className="display-flex space-between">
+          <h6>배송비</h6>
+          <p>무료</p>
+        </li>
       </ul>
-      <div className="display-flex space-between receipt-title">
+      <div className="display-flex space-between receipt-total">
         <div>
-          <strong>Total:</strong>
+          <strong>총 결제 금액</strong>
         </div>
         <div>
           <strong>{currencyFormat(totalPrice)} 원</strong>
@@ -43,11 +47,11 @@ const OrderReceipt = ({ cartList, totalPrice }) => {
             className="payment-button"
             onClick={() => navigate("/payment")}
           >
-            결제 계속하기
+            주문결제
           </Button>
         ) : (
           <Button className="payment-button" disabled>
-            결제 계속하기
+            주문결제
           </Button>
         ))}
 

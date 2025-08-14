@@ -1,23 +1,94 @@
+.cart-container {
+  padding: 3rem 0;
+}
+.cart-container h3 {
+  padding-left: 12px;
+  margin-bottom: 32px;
+}
+
 .qty-dropdown {
   max-width: 400px;
 }
-.trash-button {
-  background-color: white;
+
+.cart-product-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
+  border-radius: 30px;
   border: 1px solid gray;
+  margin: 12px 0px 12px;
 }
+.trash-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 30px;
+  border: none;
+  background-color: #1f1f21;
+}
+.trash-button:hover {
+  background-color: #111111;
+}
+.cart-item-qty {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 24px;
+}
+.qty-add-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 30px;
+  border: none;
+  background-color: #1f1f21;
+}
+.qty-add-button:hover {
+  background-color: #111111;
+}
+
+.cart-item-size span {
+  text-decoration: underline;
+}
+
 .product-card-cart {
   margin-bottom: 10px;
   background-color: #1f1f21;
   padding: 10px;
+  border-bottom: 0.5px solid gray;
 }
+
+.cart-item-img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  aspect-ratio: 1 / 1;
+}
+
+.col-md-3.col-12 {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+}
+.col-md-9.col-12 {
+  display: flex;
+  flex-direction: column;
+  gap: 0.325rem;
+}
+
 .receipt-container {
-  border: 1px solid gray;
-  padding: 32px 24px;
+  background-color: #1f1f21;
+  padding: 0px 24px 32px 24px;
 }
 .receipt-list {
   list-style-type: none;
   padding: 0;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid gray;
 }
 .receipt-list li {
   padding-bottom: 10px;
@@ -30,7 +101,14 @@
 }
 
 .receipt-title {
+  padding-left: 0px !important;
+  margin-bottom: 2rem;
+}
+
+.receipt-total {
   margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid gray;
 }
 
 .payment-button {
@@ -42,6 +120,7 @@
   margin-bottom: 20px;
   outline: none;
   border: 1px solid white;
+  border-radius: 30px;
 }
 .payment-button:hover {
   color: white;

@@ -13,9 +13,8 @@ const Sidebar = () => {
 
   const NavbarContent = () => {
     return (
-      <div>
+      <div className="admin-side-bar">
         <Link to="/" className="sidebar-logo">
-          {/* <img width={100} src="/image/hm-logo.png" alt="hm-logo.png" /> */}
           <svg
             aria-hidden="true"
             class="swoosh-svg"

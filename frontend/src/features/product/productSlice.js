@@ -8,7 +8,6 @@ export const getProductList = createAsyncThunk(
   async (query, { rejectWithValue }) => {
     try {
       const response = await api.get("/product", { params: { ...query } });
-      console.log("rrrrrrr", response);
 
       if (response.status !== 200) {
         throw new Error("Get Product Failed.", response.err);

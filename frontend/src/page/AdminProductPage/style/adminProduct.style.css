@@ -154,7 +154,7 @@
   align-items: center;
   height: 38px;
   font-family: "Noto Sans KR";
-  font-weight: 900;
+  font-weight: 600;
   color: white;
   background-color: crimson;
   border: 1px solid #ced4da;
@@ -186,6 +186,8 @@
   height: 38px;
   font-family: "Noto Sans KR";
   font-weight: 600;
+  font-size: 1rem;
+  padding: 6px 12px;
   color: white;
   background-color: cornflowerblue;
   border: 1px solid #ced4da;

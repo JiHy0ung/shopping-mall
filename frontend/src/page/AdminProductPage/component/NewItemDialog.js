@@ -46,8 +46,6 @@ const NewItemDialog = ({
   const [priceError, setPriceError] = useState(false);
   const [isShoes, setIsShoes] = useState(false);
 
-  console.log("stock", stock);
-
   useEffect(() => {
     if (success) {
       setFormData({ ...InitialFormData });

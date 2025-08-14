@@ -8,8 +8,6 @@ const OrderReceipt = ({ cartList, totalPrice }) => {
   const location = useLocation();
   const navigate = useNavigate();
 
-  // console.log("totalPrice", totalPrice);
-
   return (
     <div className="receipt-container">
       <h3 className="receipt-title">주문 내역</h3>

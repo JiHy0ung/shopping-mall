@@ -25,14 +25,13 @@ const AdminOrderPage = () => {
 
   const tableHeader = [
     "#",
-    "Order#",
-    "Order Date",
-    "User",
-    "Order Item",
-    "Address",
-    "Total Price",
-    "Status",
-    "Delete/Edit",
+    "주문 번호",
+    "주문 일시",
+    "주문자",
+    "상품",
+    "주소",
+    "총 금액",
+    "상태",
   ];
 
   useEffect(() => {
@@ -69,8 +68,8 @@ const AdminOrderPage = () => {
           <SearchBox
             searchQuery={searchQuery}
             setSearchQuery={setSearchQuery}
-            placeholder="오더번호"
-            field="ordernum"
+            placeholder="주문 번호"
+            field="orderNum"
           />
         </div>
 

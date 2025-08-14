@@ -50,7 +50,7 @@ productController.getProducts = async (req, res) => {
     let query = Product.find(condition); // 쿼리 선언
     let response = { status: "Get Products Success" };
 
-    const totalItemNum = await Product.find(condition).countDocuments(); // count() -> 데이터의 개수만 반환
+    const totalItemNum = await Product.countDocuments(condition); // count() -> 데이터의 개수만 반환
     const totalPageNum = Math.ceil(totalItemNum / PAGE_SIZE);
     response.totalPageNum = totalPageNum;
 

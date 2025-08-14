@@ -489,7 +489,6 @@ const Navbar = ({ user }) => {
                 d="M21 5.25H3M21 12H3m18 6.75H3"
               ></path>
             </svg>
-            {/* <FontAwesomeIcon icon={faBars} onClick={() => setWidth(320)} /> */}
           </div>
         </div>
       </div>

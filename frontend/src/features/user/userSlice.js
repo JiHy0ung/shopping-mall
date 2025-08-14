@@ -10,7 +10,6 @@ export const loginWithEmail = createAsyncThunk(
     try {
       const response = await api.post("/auth/login", { email, password });
       sessionStorage.setItem("token", response.data.token);
-      console.log("response", response);
       return response.data;
     } catch (err) {
       return rejectWithValue(err.err);

@@ -28,12 +28,12 @@ const AdminProductPage = () => {
   const tableHeader = [
     "#",
     "Sku",
-    "Name",
-    "Price",
-    "Stock",
-    "Image",
-    "Status",
-    "Delete/Edit",
+    "상품명",
+    "가격",
+    "재고",
+    "이미지",
+    "상태",
+    "삭제/편집",
   ];
 
   //상품리스트 가져오기 (url쿼리 맞춰서)
@@ -75,7 +75,6 @@ const AdminProductPage = () => {
 
   const handlePageClick = ({ selected }) => {
     //  쿼리에 페이지값 바꿔주기
-    // console.log("Sss", selected);
     setSearchQuery({ ...searchQuery, page: selected + 1 });
   };
 

@@ -4,6 +4,7 @@ import { badgeBg } from "../../../constants/order.constants";
 import { currencyFormat } from "../../../utils/number";
 
 const OrderTable = ({ header, data, openEditForm }) => {
+  console.log("dd", data);
   return (
     <div className="overflow-x">
       <Table striped bordered hover>
@@ -14,7 +15,7 @@ const OrderTable = ({ header, data, openEditForm }) => {
             ))}
           </tr>
         </thead>
-        <tbody>
+        <tbody style={{ cursor: "pointer" }}>
           {data.length > 0 ? (
             data.map((item, index) => (
               <tr onClick={() => openEditForm(item)}>
@@ -35,7 +36,9 @@ const OrderTable = ({ header, data, openEditForm }) => {
 
                 <th>{currencyFormat(item.totalPrice)}</th>
                 <th>
-                  <Badge bg={badgeBg[item.status]}>{item.status}</Badge>
+                  <div style={{ color: badgeBg[item.status] }}>
+                    {item.status}
+                  </div>
                 </th>
               </tr>
             ))

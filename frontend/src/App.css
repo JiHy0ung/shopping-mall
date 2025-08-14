@@ -567,6 +567,29 @@ body {
   display: none;
 }
 
+.mobile-side-burger {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 4px;
+  border: 1px solid whitesmoke;
+  background: none;
+  padding: 0.5rem;
+}
+.mobile-side-burger svg {
+  color: white;
+}
+.mobile-sidebar-logo {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.admin-container {
+  display: flex;
+  align-items: center;
+}
+
 .display-flex {
   display: flex;
   align-items: center;
@@ -625,7 +648,10 @@ body {
     display: none;
   }
   .mobile-sidebar-toggle {
-    display: block;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding-inline: 1rem;
   }
   .sidebar {
     max-width: 100%;

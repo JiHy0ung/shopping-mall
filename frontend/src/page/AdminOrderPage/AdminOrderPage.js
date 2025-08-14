@@ -36,17 +36,17 @@ const AdminOrderPage = () => {
 
   useEffect(() => {
     dispatch(getOrderList({ ...searchQuery }));
-  }, [query]);
+  }, [query, dispatch, searchQuery]);
 
   useEffect(() => {
-    if (searchQuery.ordernum === "") {
-      delete searchQuery.ordernum;
+    if (searchQuery.orderNum === "") {
+      delete searchQuery.orderNum;
     }
     const params = new URLSearchParams(searchQuery);
     const queryString = params.toString();
 
     navigate("?" + queryString);
-  }, [searchQuery]);
+  }, [searchQuery, navigate]);
 
   const openEditForm = (order) => {
     setOpen(true);
@@ -101,7 +101,13 @@ const AdminOrderPage = () => {
         />
       </Container>
 
-      {open && <OrderDetailDialog open={open} handleClose={handleClose} />}
+      {open && (
+        <OrderDetailDialog
+          searchQuery={searchQuery}
+          open={open}
+          handleClose={handleClose}
+        />
+      )}
     </div>
   );
 };

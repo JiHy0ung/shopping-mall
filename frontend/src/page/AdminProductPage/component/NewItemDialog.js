@@ -385,11 +385,11 @@ const NewItemDialog = ({
         </Row>
         {mode === "new" ? (
           <Button className="add-item-btn" type="submit">
-            Submit
+            작성 완료
           </Button>
         ) : (
           <Button className="add-item-btn" type="submit">
-            Edit
+            수정 완료
           </Button>
         )}
       </Form>

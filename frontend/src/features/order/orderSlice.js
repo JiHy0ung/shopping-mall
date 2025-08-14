@@ -78,7 +78,7 @@ export const updateOrder = createAsyncThunk(
           status: "success",
         })
       );
-      dispatch(getOrderList());
+      // dispatch(getOrderList());
       return response.data;
     } catch (err) {
       dispatch(

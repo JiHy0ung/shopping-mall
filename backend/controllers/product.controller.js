@@ -133,7 +133,7 @@ productController.deleteProduct = async (req, res) => {
   }
 };
 
-productController.checkStock = async (item) => {
+productController.verifyStock = async (item) => {
   try {
     const product = await Product.findById(item.productId);
     if (product.stock[item.size] < item.qty) {
@@ -143,14 +143,24 @@ productController.checkStock = async (item) => {
       };
     }
 
+    return { isVerify: true };
+  } catch (err) {
+    console.error(err);
+  }
+};
+
+productController.decreaseStock = async (item) => {
+  try {
+    const product = await Product.findById(item.productId);
+
     const newStock = { ...product.stock };
     newStock[item.size] -= item.qty;
     product.stock = newStock;
 
     await product.save();
-
-    return { isVerify: true };
-  } catch (err) {}
+  } catch (err) {
+    console.error(err);
+  }
 };
 
 productController.checkItemsListStock = async (itemList) => {
@@ -159,16 +169,25 @@ productController.checkItemsListStock = async (itemList) => {
 
     await Promise.all(
       itemList.map(async (item) => {
-        const stockCheck = await productController.checkStock(item);
+        const stockCheck = await productController.verifyStock(item);
         if (!stockCheck.isVerify) {
           insufficientStockItems.push({ item, message: stockCheck.message });
         }
-        return stockCheck;
       })
     );
 
+    if (insufficientStockItems.length > 0) {
+      return insufficientStockItems;
+    }
+
+    await Promise.all(
+      itemList.map((item) => productController.decreaseStock(item))
+    );
+
     return insufficientStockItems;
-  } catch (err) {}
+  } catch (err) {
+    console.error(err);
+  }
 };
 
 module.exports = productController;

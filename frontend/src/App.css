@@ -648,4 +648,37 @@ body {
     gap: 8px;
     padding: 8px 24px 8px 36px;
   }
+
+  .landing-main-title {
+    display: flex;
+    flex-direction: column;
+  }
+  .landing-main-subtitle {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .hero-img-info {
+    left: 1.5rem;
+    bottom: 1.5rem;
+  }
+  .hero-img-info p {
+    margin: 0;
+  }
+  .landing-hero-btn {
+    margin-top: 0.5rem;
+  }
+
+  .hero-event-title {
+    font-size: 2rem;
+    font-weight: 900;
+  }
+  .hero-event-desc {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .hero-img-area {
+    gap: 1rem;
+  }
 }

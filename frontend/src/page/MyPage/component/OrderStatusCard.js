@@ -1,5 +1,5 @@
 import React from "react";
-import { Row, Col, Badge } from "react-bootstrap";
+import { Row, Col } from "react-bootstrap";
 import { badgeBg } from "../../../constants/order.constants";
 import { currencyFormat } from "../../../utils/number";
 
@@ -7,13 +7,13 @@ const OrderStatusCard = ({ orderItem }) => {
   return (
     <div>
       <Row className="status-card">
-        <Col xs={4}>
+        <Col xs={5}>
           <img
             src={orderItem.items[0]?.productId?.image}
             alt={orderItem.items[0]?.productId?.name}
           />
         </Col>
-        <Col xs={7} className="order-info">
+        <Col xs={6} className="order-info">
           <p style={{ color: badgeBg[orderItem.status] }}>{orderItem.status}</p>
           <div>
             <strong>주문번호: {orderItem.orderNum}</strong>

@@ -21,13 +21,13 @@
   font-size: 1.25rem;
 }
 
-.status-card .col-4 {
+.status-card .col-5 {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.status-card .col-4 img {
+.status-card .col-5 img {
   width: 100%;
   height: auto;
 }
@@ -71,21 +71,18 @@
 .order-info {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   gap: 4px;
 }
-
-.order-info.col-7 p {
-  font-weight: 500;
-  margin-bottom: 0.5rem;
-}
-
-.badge {
+.order-inf.col-6 {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-weight: 400;
-  padding: 0.5rem 0.725rem;
-  border-radius: 30px;
+}
+.order-info.col-6 p {
+  font-size: 1.025rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
 }
 
 @media screen and (max-width: 63rem) {
@@ -97,7 +94,7 @@
     margin-left: 20px;
   }
 
-  .status-card .col-4 {
+  .status-card .col-5 {
     padding: 0;
   }
 }

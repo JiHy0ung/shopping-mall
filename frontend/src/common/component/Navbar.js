@@ -109,10 +109,17 @@ const Navbar = ({ user }) => {
             />
           </div>
 
-          <div className="side-menu-auth">
-            <div onClick={() => navigate("/register")}>가입하기</div>
-            <div onClick={() => navigate("/login")}>로그인</div>
-          </div>
+          {!user ? (
+            <div className="side-menu-auth">
+              <div onClick={() => navigate("/register")}>가입하기</div>
+              <div onClick={() => navigate("/login")}>로그인</div>
+            </div>
+          ) : (
+            <div className="side-menu-auth">
+              <div onClick={() => navigate("/account/purchase")}>주문</div>
+              <div onClick={handleLogout}>로그아웃</div>
+            </div>
+          )}
 
           {menuList.map((menu, index) => (
             <button key={index}>

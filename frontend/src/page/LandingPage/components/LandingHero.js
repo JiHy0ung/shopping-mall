@@ -25,10 +25,13 @@ const LandingHero = () => {
       </div>
 
       <div className="landing-main-text-area">
-        <h3 className="landing-main-title">혁신적 실루엣, 에어와 만나다</h3>
+        <h3 className="landing-main-title">
+          <span>혁신적 실루엣,</span>
+          <span>에어와 만나다</span>
+        </h3>
         <p className="landing-main-subtitle">
-          나이키 에어맥스 뮤즈 : 영감을 깨우는 혁신. 스타일을 완성하는 새로운
-          차원의 무드.
+          <span>나이키 에어맥스 뮤즈 : 영감을 깨우는 혁신. </span>
+          <span>스타일을 완성하는 새로운 차원의 무드.</span>
         </p>
         <div className="landing-main-btn-area">
           <button className="landing-main-btn">자세히 보기</button>
@@ -71,8 +74,8 @@ const LandingHero = () => {
             <p className="hero-event-subtitle">카리나와 함께하는</p>
             <h3 className="hero-event-title">FIND THE STYLE CODE</h3>
             <p className="hero-event-desc">
-              카리나를 비롯한 스타일 리더들의 에어맥스 뮤즈 & 에어 슈퍼플라이
-              룩을 확인해보세요.
+              <span>카리나를 비롯한 스타일 리더들의</span>
+              <span>에어맥스 뮤즈 & 에어 슈퍼플라이 룩을 확인해보세요.</span>
               <br />
               다양한 스타일링 포토에 숨겨진 스타일 코드를 찾은 분들 중
               <br />

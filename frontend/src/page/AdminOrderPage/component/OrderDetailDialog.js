@@ -29,10 +29,10 @@ const OrderDetailDialog = ({ open, handleClose, searchQuery }) => {
   return (
     <Modal show={open} onHide={handleClose}>
       <Modal.Header closeButton>
-        <Modal.Title>예약 정보</Modal.Title>
+        <Modal.Title>주문 정보</Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        <p>예약번호: {selectedOrder.orderNum}</p>
+        <p>주문번호: {selectedOrder.orderNum}</p>
         <p>주문날짜: {selectedOrder.createdAt.slice(0, 10)}</p>
         <p>이메일: {selectedOrder.userId.email}</p>
         <p>

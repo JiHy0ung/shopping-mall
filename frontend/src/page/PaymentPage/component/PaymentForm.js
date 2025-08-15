@@ -52,7 +52,7 @@ const PaymentForm = ({
                 onFocus={handleInputFocus}
                 required
                 value={cardValue.expiry}
-                maxLength={7}
+                pattern="^(0[1-9]|1[0-2])\/\d{2}$"
               />
             </Col>
             <Col>
@@ -63,6 +63,7 @@ const PaymentForm = ({
                 onChange={handlePaymentInfoChange}
                 onFocus={handleInputFocus}
                 required
+                minLength={3}
                 maxLength={3}
                 value={cardValue.cvc}
               />

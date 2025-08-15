@@ -20,7 +20,13 @@ cartController.addItemToCart = async (req, res) => {
       // productId는 mongoose.ObjectId 타입이기 때문에 equals 메서드 사용하여 비교
       (item) => item.productId.equals(productId) && item.size === size
     );
-    if (existItem) throw new Error("This product is already added.");
+    if (existItem) {
+      return res.status(400).json({
+        status: "Add Item to Cart Failed",
+        err: "이미 장바구니에 있는 상품입니다.",
+        code: "DUPLICATE_PRODUCT",
+      });
+    }
 
     // 카트에 아이템을 추가
     cart.items = [...cart.items, { productId, size, qty }];
@@ -32,9 +38,10 @@ cartController.addItemToCart = async (req, res) => {
       cartItemQty: cart.items.length,
     });
   } catch (err) {
-    res
-      .status(400)
-      .json({ status: "Add Item to Cart Failed", err: err.message });
+    res.status(400).json({
+      status: "Add Item to Cart Failed",
+      err: err.message,
+    });
   }
 };
 

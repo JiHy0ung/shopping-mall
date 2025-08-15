@@ -1,6 +1,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import api from "../../utils/api";
 import { showToastMessage } from "../common/uiSlice";
+import { CART_ERROR_MESSAGES } from "../../constants/cart.constants";
 
 const initialState = {
   loading: false,
@@ -28,12 +29,9 @@ export const addToCart = createAsyncThunk(
       );
       return response.data.cartItemQty;
     } catch (err) {
-      dispatch(
-        showToastMessage({
-          message: "이미 장바구니에 등록된 상품입니다",
-          status: "error",
-        })
-      );
+      const errCode = err.code || "DEFAULT";
+
+      dispatch(showToastMessage(CART_ERROR_MESSAGES[errCode]));
       return rejectWithValue(err.err);
     }
   }

@@ -36,11 +36,15 @@ authController.authenticate = async (req, res, next) => {
       const token = tokenString.replace("Bearer ", "");
       jwt.verify(token, JWT_SECRET_KEY, (err, payload) => {
         if (err) {
-          throw new Error("invalid token.");
-        } else {
-          req.userId = payload._id;
-          next();
+          return res.status(400).json({
+            status: "Failed",
+            err: "Invalid token",
+            code: "INVALID_TOKEN",
+          });
         }
+
+        req.userId = payload._id;
+        next();
       });
     }
   } catch (err) {

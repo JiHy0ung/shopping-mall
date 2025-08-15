@@ -4,7 +4,6 @@ import { badgeBg } from "../../../constants/order.constants";
 import { currencyFormat } from "../../../utils/number";
 
 const OrderTable = ({ header, data, openEditForm }) => {
-  console.log("dd", data);
   return (
     <div className="overflow-x">
       <Table striped bordered hover>

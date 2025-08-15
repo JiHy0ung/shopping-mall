@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Container } from "react-bootstrap";
+import { Container, Spinner } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import ReactPaginate from "react-paginate";
 import { useSearchParams, useNavigate } from "react-router-dom";
@@ -16,7 +16,9 @@ const AdminOrderPage = () => {
   const navigate = useNavigate();
   const [query] = useSearchParams();
   const dispatch = useDispatch();
-  const { orderList, totalPageNum } = useSelector((state) => state.order);
+  const { orderList, totalPageNum, loading } = useSelector(
+    (state) => state.order
+  );
   const [searchQuery, setSearchQuery] = useState({
     page: query.get("page") || 1,
     ordernum: query.get("ordernum") || "",
@@ -63,43 +65,49 @@ const AdminOrderPage = () => {
 
   return (
     <div className="locate-center">
-      <Container>
+      {loading ? (
         <div className="mt-2 display-center mb-2">
-          <SearchBox
-            searchQuery={searchQuery}
-            setSearchQuery={setSearchQuery}
-            placeholder="주문 번호"
-            field="orderNum"
-          />
+          <Spinner animation="border" size="lg" variant="white"></Spinner>
         </div>
+      ) : (
+        <Container>
+          <div className="mt-2 display-center mb-2">
+            <SearchBox
+              searchQuery={searchQuery}
+              setSearchQuery={setSearchQuery}
+              placeholder="주문 번호"
+              field="orderNum"
+            />
+          </div>
 
-        <OrderTable
-          header={tableHeader}
-          data={orderList}
-          openEditForm={openEditForm}
-        />
-        <ReactPaginate
-          nextLabel="next >"
-          onPageChange={handlePageClick}
-          pageRangeDisplayed={5}
-          pageCount={totalPageNum}
-          forcePage={searchQuery.page - 1}
-          previousLabel="< previous"
-          renderOnZeroPageCount={null}
-          pageClassName="page-item"
-          pageLinkClassName="page-link"
-          previousClassName="page-item"
-          previousLinkClassName="page-link"
-          nextClassName="page-item"
-          nextLinkClassName="page-link"
-          breakLabel="..."
-          breakClassName="page-item"
-          breakLinkClassName="page-link"
-          containerClassName="pagination"
-          activeClassName="active"
-          className="display-center list-style-none"
-        />
-      </Container>
+          <OrderTable
+            header={tableHeader}
+            data={orderList}
+            openEditForm={openEditForm}
+          />
+          <ReactPaginate
+            nextLabel="next >"
+            onPageChange={handlePageClick}
+            pageRangeDisplayed={5}
+            pageCount={totalPageNum}
+            forcePage={searchQuery.page - 1}
+            previousLabel="< previous"
+            renderOnZeroPageCount={null}
+            pageClassName="page-item"
+            pageLinkClassName="page-link"
+            previousClassName="page-item"
+            previousLinkClassName="page-link"
+            nextClassName="page-item"
+            nextLinkClassName="page-link"
+            breakLabel="..."
+            breakClassName="page-item"
+            breakLinkClassName="page-link"
+            containerClassName="pagination"
+            activeClassName="active"
+            className="display-center list-style-none"
+          />
+        </Container>
+      )}
 
       {open && (
         <OrderDetailDialog

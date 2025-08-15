@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Form, Modal, Button, Col, Table } from "react-bootstrap";
+import { Form, Modal, Button, Col, Table, Spinner } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { ORDER_STATUS } from "../../../constants/order.constants";
 import { currencyFormat } from "../../../utils/number";
@@ -7,6 +7,7 @@ import { getOrderList, updateOrder } from "../../../features/order/orderSlice";
 
 const OrderDetailDialog = ({ open, handleClose, searchQuery }) => {
   const selectedOrder = useSelector((state) => state.order.selectedOrder);
+  const { loading } = useSelector((state) => state.order.loading);
   const [orderStatus, setOrderStatus] = useState(selectedOrder.status);
   const dispatch = useDispatch();
 

@@ -50,12 +50,17 @@ cartController.getCartItems = async (req, res) => {
     const { userId } = req;
 
     const cart = await Cart.findOne({ userId }).populate({
-      path: "items",
-      populate: {
-        path: "productId",
-        model: "Product",
-      },
+      path: "items.productId",
+      model: "Product",
     });
+
+    if (!cart) {
+      return res.status(200).json({
+        status: "Get Cart Items Success",
+        data: [],
+      });
+    }
+
     res
       .status(200)
       .json({ status: "Get Cart Items Success", data: cart.items });
@@ -120,6 +125,13 @@ cartController.getCartQty = async (req, res) => {
   try {
     const { userId } = req;
     const cart = await Cart.findOne({ userId });
+
+    if (!cart) {
+      return res.status(200).json({
+        status: "Get Cart Items Qty Success",
+        data: 0,
+      });
+    }
 
     const cartQty = cart.items.length;
     res

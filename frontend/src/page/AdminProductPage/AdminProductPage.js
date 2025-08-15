@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Container, Button } from "react-bootstrap";
+import { Container, Button, Spinner } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { useSearchParams, useNavigate } from "react-router-dom";
 import ReactPaginate from "react-paginate";
@@ -16,7 +16,9 @@ const AdminProductPage = () => {
   const navigate = useNavigate();
   const [query] = useSearchParams();
   const dispatch = useDispatch();
-  const { productList, totalPageNum } = useSelector((state) => state.product);
+  const { productList, totalPageNum, loading } = useSelector(
+    (state) => state.product
+  );
   const [showDialog, setShowDialog] = useState(false);
   const [searchQuery, setSearchQuery] = useState({
     page: query.get("page") || 1,
@@ -80,50 +82,56 @@ const AdminProductPage = () => {
 
   return (
     <div className="locate-center">
-      <Container>
-        <div className="search-add mt-2">
-          <SearchBox
-            searchQuery={searchQuery}
-            setSearchQuery={setSearchQuery}
-            placeholder="제품 이름으로 검색"
-            field="name"
-          />
-          <Button
-            className="add-item-btn mt-2 mb-2"
-            onClick={handleClickNewItem}
-          >
-            Add New Item +
-          </Button>
+      {loading ? (
+        <div className="mt-2 display-center mb-2">
+          <Spinner animation="border" size="lg" variant="white"></Spinner>
         </div>
+      ) : (
+        <Container>
+          <div className="search-add mt-2">
+            <SearchBox
+              searchQuery={searchQuery}
+              setSearchQuery={setSearchQuery}
+              placeholder="제품 이름으로 검색"
+              field="name"
+            />
+            <Button
+              className="add-item-btn mt-2 mb-2"
+              onClick={handleClickNewItem}
+            >
+              Add New Item +
+            </Button>
+          </div>
 
-        <ProductTable
-          header={tableHeader}
-          data={productList}
-          deleteItem={deleteItem}
-          openEditForm={openEditForm}
-        />
-        <ReactPaginate
-          nextLabel="next >"
-          onPageChange={handlePageClick}
-          pageRangeDisplayed={5}
-          pageCount={totalPageNum}
-          forcePage={searchQuery.page - 1}
-          previousLabel="< previous"
-          renderOnZeroPageCount={null}
-          pageClassName="page-item"
-          pageLinkClassName="page-link"
-          previousClassName="page-item"
-          previousLinkClassName="page-link"
-          nextClassName="page-item"
-          nextLinkClassName="page-link"
-          breakLabel="..."
-          breakClassName="page-item"
-          breakLinkClassName="page-link"
-          containerClassName="pagination"
-          activeClassName="active"
-          className="display-center list-style-none"
-        />
-      </Container>
+          <ProductTable
+            header={tableHeader}
+            data={productList}
+            deleteItem={deleteItem}
+            openEditForm={openEditForm}
+          />
+          <ReactPaginate
+            nextLabel="next >"
+            onPageChange={handlePageClick}
+            pageRangeDisplayed={5}
+            pageCount={totalPageNum}
+            forcePage={searchQuery.page - 1}
+            previousLabel="< previous"
+            renderOnZeroPageCount={null}
+            pageClassName="page-item"
+            pageLinkClassName="page-link"
+            previousClassName="page-item"
+            previousLinkClassName="page-link"
+            nextClassName="page-item"
+            nextLinkClassName="page-link"
+            breakLabel="..."
+            breakClassName="page-item"
+            breakLinkClassName="page-link"
+            containerClassName="pagination"
+            activeClassName="active"
+            className="display-center list-style-none"
+          />
+        </Container>
+      )}
 
       <NewItemDialog
         mode={mode}

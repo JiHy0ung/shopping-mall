@@ -4,8 +4,10 @@ import { Col, Row } from "react-bootstrap";
 import "../style/wish.style.css";
 import { useDispatch } from "react-redux";
 import { deleteWishItem } from "../../../features/wish/wishSlice";
+import { useNavigate } from "react-router";
 
 const WishProductCard = ({ item }) => {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const deleteItem = (id) => {
@@ -13,7 +15,10 @@ const WishProductCard = ({ item }) => {
   };
 
   return (
-    <Row className="wish-card-container">
+    <Row
+      className="wish-card-container"
+      onClick={() => navigate(`/product/${item.productId._id}`)}
+    >
       <div className="wish-card-img-area">
         <img
           className="wish-card-img"

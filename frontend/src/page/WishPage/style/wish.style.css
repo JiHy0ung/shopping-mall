@@ -3,6 +3,7 @@
 }
 
 .wish-card-container {
+  cursor: pointer;
   margin-bottom: 2rem;
 }
 .wish-card-container h5 {

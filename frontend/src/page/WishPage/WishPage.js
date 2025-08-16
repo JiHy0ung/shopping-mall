@@ -13,8 +13,6 @@ const WishPage = () => {
     dispatch(getWishList());
   }, [dispatch]);
 
-  console.log("wish", wishList);
-  console.log("wish", wishList.length);
   return (
     <Container className="wish-container">
       <h3>위시리스트</h3>
@@ -24,7 +22,7 @@ const WishPage = () => {
         <Row>
           {wishList.length > 0 ? (
             wishList.map((item) => (
-              <Col xs={4}>
+              <Col xl={4} lg={6} sm={12}>
                 <WishProductCard item={item} key={item._id} />
               </Col>
             ))

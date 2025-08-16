@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Placeholder } from "react-bootstrap";
+import { Col, Container, Placeholder, Row } from "react-bootstrap";
 import "./skeleton.style.css";
 
 const LandingSkeleton = () => {
@@ -29,21 +29,21 @@ const LandingSkeleton = () => {
         <Placeholder xs={1} />
       </Placeholder>
 
-      <div className="skeleton-container">
+      <Row className="skeleton-container">
         {[1, 2, 3].map((_, idx) => (
-          <div className="skeleton-card" key={idx}>
+          <Col xs={12} xl={4} className="skeleton-card" key={idx}>
             <Placeholder as="div" animation="glow">
-              <Placeholder xs={12} style={{ height: "416px" }} />
+              <Placeholder id="p-img" xs={12} />
             </Placeholder>
-            <Placeholder as="div" animation="glow">
-              <Placeholder xs={8} />
+            <Placeholder id="p-name" as="div" animation="glow">
+              <Placeholder xl={8} md={5} xs={8} />
             </Placeholder>
-            <Placeholder as="div" animation="glow">
-              <Placeholder xs={4} />
+            <Placeholder id="p-name" as="div" animation="glow">
+              <Placeholder xl={4} md={3} xs={3} />
             </Placeholder>
-          </div>
+          </Col>
         ))}
-      </div>
+      </Row>
     </Container>
   );
 };

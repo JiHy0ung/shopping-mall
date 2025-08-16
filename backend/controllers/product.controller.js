@@ -15,6 +15,7 @@ productController.createProduct = async (req, res) => {
       price,
       category,
       status,
+      isNew,
     } = req.body;
 
     const isDuplicate = await Product.findOne({ sku });
@@ -32,6 +33,7 @@ productController.createProduct = async (req, res) => {
       price,
       category,
       status,
+      isNew,
     });
 
     await product.save();
@@ -95,11 +97,23 @@ productController.updateProduct = async (req, res) => {
       price,
       category,
       status,
+      isNew,
     } = req.body;
 
     const product = await Product.findByIdAndUpdate(
       { _id: id },
-      { sku, name, size, description, stock, image, price, category, status },
+      {
+        sku,
+        name,
+        size,
+        description,
+        stock,
+        image,
+        price,
+        category,
+        status,
+        isNew,
+      },
       { new: true }
     );
 

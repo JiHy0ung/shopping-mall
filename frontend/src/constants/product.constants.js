@@ -14,6 +14,7 @@ export const PRODUCT_EDIT_FAIL = "PRODUCT_EDIT_FAIL";
 export const SET_FILTERED_LIST = "SET_FILTERED_LIST";
 export const CATEGORY = ["Top", "Dress", "Pants", "Shoes"];
 export const STATUS = ["active", "disactive"];
+export const NEW = ["true", "false"];
 export const SIZE = ["XS", "S", "M", "L", "XL"];
 export const SHOES_SIZE = [
   "220",

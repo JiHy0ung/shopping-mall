@@ -11,6 +11,7 @@ const productSchema = Schema(
     image: { type: String, required: true },
     category: { type: Array, required: true },
     status: { type: String, required: true, default: "active" },
+    isNew: { type: Boolean, required: true, default: true },
     isDeleted: { type: Boolean, required: true, default: false },
   },
   { timestamps: true }

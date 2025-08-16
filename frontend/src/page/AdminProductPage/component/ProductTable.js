@@ -4,6 +4,7 @@ import Table from "react-bootstrap/Table";
 import { currencyFormat } from "../../../utils/number";
 
 const ProductTable = ({ header, data, deleteItem, openEditForm }) => {
+  console.log("data", data);
   return (
     <div className="overflow-x">
       <Table striped bordered hover>
@@ -33,6 +34,7 @@ const ProductTable = ({ header, data, deleteItem, openEditForm }) => {
                   <img src={item.image} width={100} alt="image" />
                 </th>
                 <th>{item.status}</th>
+                <th>{item.isNew ? "New" : "Old"}</th>
                 <th style={{ minWidth: "100px" }}>
                   <div className="display-flex">
                     <Button

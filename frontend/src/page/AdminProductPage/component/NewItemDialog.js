@@ -5,6 +5,7 @@ import CloudinaryUploadWidget from "../../../utils/CloudinaryUploadWidget";
 import {
   CATEGORY,
   STATUS,
+  NEW,
   SIZE,
   SHOES_SIZE,
 } from "../../../constants/product.constants";
@@ -24,6 +25,7 @@ const InitialFormData = {
   description: "",
   category: [],
   status: "active",
+  isNew: "",
   price: 0,
 };
 
@@ -376,6 +378,21 @@ const NewItemDialog = ({
               required
             >
               {STATUS.map((item, idx) => (
+                <option key={idx} value={item.toLowerCase()}>
+                  {item}
+                </option>
+              ))}
+            </Form.Select>
+          </Form.Group>
+
+          <Form.Group as={Col} controlId="isNew">
+            <Form.Label>isNew</Form.Label>
+            <Form.Select
+              value={formData.isNew}
+              onChange={handleChange}
+              required
+            >
+              {NEW.map((item, idx) => (
                 <option key={idx} value={item.toLowerCase()}>
                   {item}
                 </option>

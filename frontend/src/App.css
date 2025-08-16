@@ -429,12 +429,36 @@ body {
   font-weight: 500;
   background-color: white;
   margin-top: 20px;
+  border-radius: 30px;
+  min-height: 58px;
   width: 100%;
 }
 .add-button:hover {
   background-color: #e5e5e5;
 }
 .add-button:focus {
+  box-shadow: none;
+}
+
+.wish-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  border: 1px solid gray;
+  color: #111111;
+  font-weight: 500;
+  background-color: white;
+  margin-top: 20px;
+  border-radius: 30px;
+  min-height: 58px;
+  width: 100%;
+}
+.wish-button:hover {
+  border: 1px solid #111111;
+}
+.wish-button:focus {
+  border: 1px solid #111111;
   box-shadow: none;
 }
 

@@ -60,6 +60,7 @@ export const deleteCartItem = createAsyncThunk(
           status: "success",
         })
       );
+
       dispatch(getCartList());
       return response.data.data;
     } catch (err) {

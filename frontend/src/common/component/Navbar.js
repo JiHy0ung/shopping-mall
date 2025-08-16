@@ -19,7 +19,7 @@ const Navbar = ({ user }) => {
   const { cartItemCount } = useSelector((state) => state.cart);
   const isMobile = window.navigator.userAgent.indexOf("Mobile") !== -1;
   const [showSearchBox, setShowSearchBox] = useState(false);
-  const menuList = ["New", "Men", "Women", "Kids", "Jordan", "Sale"];
+  const menuList = ["New", "All", "Men", "Women", "Kids", "Jordan", "Sale"];
   let [width, setWidth] = useState(0);
   let navigate = useNavigate();
 
@@ -296,7 +296,12 @@ const Navbar = ({ user }) => {
                       >
                         주문
                       </p>
-                      <p className="popover-content">위시리스트</p>
+                      <p
+                        className="popover-content"
+                        onClick={() => navigate("/wish")}
+                      >
+                        위시리스트
+                      </p>
                       <p className="popover-content">이벤트</p>
                       <p className="popover-content">회원정보관리</p>
                     </>
@@ -418,7 +423,8 @@ const Navbar = ({ user }) => {
                   onKeyPress={onCheckEnter}
                 />
               </div>
-              <div className="wishlist-icon">
+
+              <div onClick={() => navigate("/wish")} className="wishlist-icon">
                 <svg
                   aria-hidden="true"
                   focusable="false"

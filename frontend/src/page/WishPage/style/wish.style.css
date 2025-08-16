@@ -1,0 +1,54 @@
+.wish-container h3 {
+  margin-block: 20px;
+}
+
+.wish-card-container {
+  margin-bottom: 2rem;
+}
+.wish-card-container h5 {
+  font-weight: 700;
+}
+
+.wish-card-img-area {
+  position: relative;
+  display: inline-block;
+}
+
+.wish-card-img {
+  display: flex;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  aspect-ratio: 1 / 1;
+  margin-bottom: 0.5rem;
+}
+
+.wishlist-btn svg {
+  fill: black;
+  stroke: black;
+  transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.wishlist-btn {
+  position: absolute;
+  z-index: 1;
+  top: 1rem;
+  right: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  background-color: white;
+  border: none;
+  border-radius: 30px;
+  width: 40px;
+  height: 40px;
+  transition: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.wishlist-btn:hover {
+  background-color: #111111;
+  transform: translateY(2px);
+}
+.wishlist-btn:hover svg {
+  fill: white;
+  stroke: white;
+}

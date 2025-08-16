@@ -1,0 +1,26 @@
+.event-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+.event-container a {
+  color: white;
+}
+
+.event-main-poster {
+  margin-bottom: 3rem;
+}
+
+.event-container h1 {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  font-size: 2rem;
+  margin-block: 20px;
+}
+
+.event-container h4 {
+  font-weight: 700;
+}

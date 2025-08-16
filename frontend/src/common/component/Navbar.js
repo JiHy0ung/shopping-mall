@@ -19,7 +19,7 @@ const Navbar = ({ user }) => {
   const { cartItemCount } = useSelector((state) => state.cart);
   const isMobile = window.navigator.userAgent.indexOf("Mobile") !== -1;
   const [showSearchBox, setShowSearchBox] = useState(false);
-  const menuList = ["New", "All", "Men", "Women", "Kids", "Jordan", "Sale"];
+  const menuList = ["New", "All", "Men", "Women", "Kids", "Shoes", "Event"];
   let [width, setWidth] = useState(0);
   let navigate = useNavigate();
 
@@ -122,7 +122,16 @@ const Navbar = ({ user }) => {
           )}
 
           {menuList.map((menu, index) => (
-            <button key={index}>
+            <button
+              key={index}
+              onClick={() =>
+                navigate(
+                  menu.toLowerCase() === "event"
+                    ? `/event`
+                    : `/products/${menu.toLowerCase()}`
+                )
+              }
+            >
               {menu}
               <svg
                 aria-hidden="true"
@@ -289,7 +298,7 @@ const Navbar = ({ user }) => {
                   <p className="popover-title">계정</p>
                   {user && user.level === "customer" && (
                     <>
-                      <p className="popover-content">프로필</p>
+                      {/* <p className="popover-content">프로필</p> */}
                       <p
                         className="popover-content"
                         onClick={() => navigate("/account/purchase")}
@@ -302,8 +311,13 @@ const Navbar = ({ user }) => {
                       >
                         위시리스트
                       </p>
-                      <p className="popover-content">이벤트</p>
-                      <p className="popover-content">회원정보관리</p>
+                      <p
+                        className="popover-content"
+                        onClick={() => navigate("/event")}
+                      >
+                        이벤트
+                      </p>
+                      {/* <p className="popover-content">회원정보관리</p> */}
                     </>
                   )}
                   <p className="popover-content" onClick={handleLogout}>
@@ -389,7 +403,15 @@ const Navbar = ({ user }) => {
         <ul className="menu">
           {menuList.map((menu, index) => (
             <li key={index}>
-              <Link to={`/products/${menu.toLowerCase()}`}>{menu}</Link>
+              <Link
+                to={
+                  menu.toLowerCase() === "event"
+                    ? `/event`
+                    : `/products/${menu.toLowerCase()}`
+                }
+              >
+                {menu}
+              </Link>
             </li>
           ))}
         </ul>

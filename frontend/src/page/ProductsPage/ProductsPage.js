@@ -26,34 +26,35 @@ const ProductsPage = () => {
       ? productList
       : category === "new"
       ? productList.filter((item) => item.isNew === true)
-      : category === "jordan"
-      ? productList.filter((item) => item.category[0] === "shoes")
-      : "";
-
-  console.log("category", category);
-  console.log("filteredList", filteredList);
+      : productList.filter((item) => item.category[0] === category);
 
   return (
-    <Container>
-      <h3>{!name && category.toUpperCase()}</h3>
-      <Row>
-        {filteredList.length > 0 ? (
-          filteredList.map((item) => (
-            <Col md={4} sm={12} key={item._id}>
-              <ProductCard item={item} />
-            </Col>
-          ))
-        ) : (
-          <div className="text-align-center empty-bag">
-            {name === "" ? (
-              <h2>등록된 상품이 없습니다!</h2>
+    <>
+      {loading ? (
+        <div>...loading</div>
+      ) : (
+        <Container>
+          <h3>{!name && category.toUpperCase()}</h3>
+          <Row>
+            {filteredList.length > 0 ? (
+              filteredList.map((item) => (
+                <Col md={4} sm={12} key={item._id}>
+                  <ProductCard item={item} />
+                </Col>
+              ))
             ) : (
-              <h2>"{name}" 과 일치한 상품이 없습니다!</h2>
+              <div className="text-align-center empty-bag">
+                {name === "" ? (
+                  <h2>등록된 상품이 없습니다!</h2>
+                ) : (
+                  <h2>"{name}" 과 일치한 상품이 없습니다!</h2>
+                )}
+              </div>
             )}
-          </div>
-        )}
-      </Row>
-    </Container>
+          </Row>
+        </Container>
+      )}
+    </>
   );
 };
 

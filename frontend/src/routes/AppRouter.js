@@ -13,6 +13,8 @@ import RegisterPage from "../page/RegisterPage/RegisterPage";
 import PrivateRoute from "./PrivateRoute";
 import WishPage from "../page/WishPage/WishPage";
 import ProductsPage from "../page/ProductsPage/ProductsPage";
+import EventPage from "../page/EventPage/EventPage";
+import EventQuizPage from "../page/EventQuizPage/EventQuizPage";
 
 const AppRouter = () => {
   return (
@@ -22,12 +24,14 @@ const AppRouter = () => {
       <Route path="/register" element={<RegisterPage />} />
       <Route path="/products/:category" element={<ProductsPage />} />
       <Route path="/product/:id" element={<ProductDetail />} />
+      <Route path="/event" element={<EventPage />} />
       <Route element={<PrivateRoute permissionLevel="customer" />}>
         <Route path="/cart" element={<CartPage />} />
         <Route path="/payment" element={<PaymentPage />} />
         <Route path="/payment/success" element={<OrderCompletePage />} />
         <Route path="/account/purchase" element={<MyPage />} />
         <Route path="/wish" element={<WishPage />} />
+        <Route path="/event/quiz" element={<EventQuizPage />} />
       </Route>
       <Route element={<PrivateRoute permissionLevel="admin" />}>
         <Route path="/admin/product" element={<AdminProduct />} />

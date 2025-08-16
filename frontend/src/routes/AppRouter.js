@@ -12,6 +12,7 @@ import ProductDetail from "../page/ProductDetailPage/ProductDetailPage";
 import RegisterPage from "../page/RegisterPage/RegisterPage";
 import PrivateRoute from "./PrivateRoute";
 import WishPage from "../page/WishPage/WishPage";
+import ProductsPage from "../page/ProductsPage/ProductsPage";
 
 const AppRouter = () => {
   return (
@@ -19,6 +20,7 @@ const AppRouter = () => {
       <Route path="/" element={<ProductAll />} />
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<RegisterPage />} />
+      <Route path="/products/:category" element={<ProductsPage />} />
       <Route path="/product/:id" element={<ProductDetail />} />
       <Route element={<PrivateRoute permissionLevel="customer" />}>
         <Route path="/cart" element={<CartPage />} />

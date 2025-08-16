@@ -28,9 +28,9 @@ const LandingPage = () => {
 
   return (
     <>
-      {/* <LandingHero /> */}
+      <LandingHero />
       <Container>
-        {!loading ? (
+        {loading ? (
           <LandingSkeleton />
         ) : (
           <Row>

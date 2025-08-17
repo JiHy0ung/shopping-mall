@@ -88,8 +88,9 @@ const PaymentPage = () => {
   };
 
   const availableCoupons = Array.isArray(userCouponList)
-    ? userCouponList.filter((coupon) => !coupon.isUsed)
+    ? userCouponList.filter((coupon) => coupon.isUsed === false)
     : [];
+
   const handleFormChange = (event) => {
     //shipInfo에 값 넣어주기
     const { name, value } = event.target;
@@ -218,8 +219,8 @@ const PaymentPage = () => {
                     <Form.Label>Coupon</Form.Label>
                     <Form.Select onChange={handleFormChange} name="coupon">
                       <option value="">쿠폰을 선택하세요</option>
-                      {(Array.isArray(userCouponList)
-                        ? userCouponList
+                      {(Array.isArray(availableCoupons)
+                        ? availableCoupons
                         : []
                       ).map((item, idx) => (
                         <option key={idx} value={item._id}>

@@ -116,8 +116,10 @@ const Navbar = ({ user }) => {
             </div>
           ) : (
             <div className="side-menu-auth">
-              <div onClick={() => navigate("/account/purchase")}>주문</div>
-              <div onClick={handleLogout}>로그아웃</div>
+              <div onClick={() => navigate("/account/purchase")}>
+                마이페이지
+              </div>
+              <div onClick={() => navigate("/wish")}>위시리스트</div>
             </div>
           )}
 
@@ -196,6 +198,7 @@ const Navbar = ({ user }) => {
               <p>Converse</p>
             </a>
           </div>
+          <div onClick={handleLogout}>로그아웃</div>
         </div>
       </div>
       <div className="nav-header">

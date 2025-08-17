@@ -71,16 +71,6 @@ const EventQuizPage = () => {
           제출
         </button>
       </Form>
-      {/* <Modal className="quiz-modal" show={open} onHide={handleClose}>
-        <Modal.Header closeButton>
-          <Modal.Title>축하드립니다!</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          광복 80주년 기념 쿠폰 코드
-          <br />
-          <strong>GWANGBOK80</strong>
-        </Modal.Body>
-      </Modal> */}
     </Container>
   );
 };

@@ -65,7 +65,7 @@ couponController.updateCouponActive = async (req, res) => {
       { $set: { isActive: !coupon.isActive } },
       { new: true }
     );
-    await coupon.save();
+    await updatedCoupon.save();
 
     res
       .status(200)

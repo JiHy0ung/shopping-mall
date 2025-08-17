@@ -31,9 +31,9 @@ userCouponController.createUserCoupon = async (req, res) => {
 userCouponController.getUserCouponList = async (req, res) => {
   try {
     const { userId } = req;
-    const userCouponList = await UserCoupon.find({ userId }).populate(
-      "couponId"
-    );
+    const userCouponList = (
+      await UserCoupon.find({ userId }).populate("couponId")
+    ).filter((item) => item.couponId.isActive === true);
 
     res
       .status(200)

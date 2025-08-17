@@ -18,6 +18,8 @@ const MyPage = () => {
   const availableCoupons = userCouponList.filter(
     (item) => item.isUsed === false
   );
+  console.log("userCouponList", userCouponList);
+  console.log("availableCoupons", availableCoupons);
 
   useEffect(() => {
     dispatch(getOrder());

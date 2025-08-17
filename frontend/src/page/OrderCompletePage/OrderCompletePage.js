@@ -6,7 +6,6 @@ import "../PaymentPage/style/paymentPage.style.css";
 
 const OrderCompletePage = () => {
   const { orderNum } = useSelector((state) => state.order);
-  console.log("orderNum", orderNum);
   if (orderNum === "")
     return (
       <Container className="confirmation-page">

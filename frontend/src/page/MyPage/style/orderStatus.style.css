@@ -103,6 +103,26 @@
   border-bottom: 1px solid gray;
   padding-bottom: 2rem;
   margin-bottom: 2rem;
+  cursor: default;
+}
+.user-coupon-area button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem 2rem;
+  border: none;
+  border-radius: 30px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+.user-coupon-area button:hover {
+  background-color: #111111;
+  color: white;
+}
+.user-coupon-event-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .user-coupon-area h4 {

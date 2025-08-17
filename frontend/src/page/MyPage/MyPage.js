@@ -6,14 +6,14 @@ import OrderStatusCard from "./component/OrderStatusCard";
 import "./style/orderStatus.style.css";
 import { getOrder } from "../../features/order/orderSlice";
 import { getUserCouponList } from "../../features/userCoupon/userCouponSlice";
+import { useNavigate } from "react-router-dom";
 
 const MyPage = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const { orderList } = useSelector((state) => state.order);
   const { user } = useSelector((state) => state.user);
   const { userCouponList } = useSelector((state) => state.userCoupon);
-
-  console.log("userCouponList ", userCouponList);
 
   const availableCoupons = userCouponList.filter(
     (item) => item.isUsed === false
@@ -38,9 +38,15 @@ const MyPage = () => {
       </div>
       <div className="user-coupon-area">
         <h4>보유 쿠폰</h4>
-        <div>
-          <Row>
-            {availableCoupons.map((item) => (
+        <Row>
+          {availableCoupons.length === 0 ? (
+            <div className="user-coupon-event-btn">
+              <button onClick={() => navigate("/event")}>
+                이벤트 구경하기
+              </button>
+            </div>
+          ) : (
+            availableCoupons.map((item) => (
               <Col xs={6}>
                 <div className="user-coupon-card">
                   <h5>{item.couponId.name}</h5>
@@ -55,9 +61,9 @@ const MyPage = () => {
                   </div>
                 </div>
               </Col>
-            ))}
-          </Row>
-        </div>
+            ))
+          )}
+        </Row>
       </div>
       {orderList?.length === 0 ? (
         <Container className="no-order-box">

@@ -101,7 +101,6 @@ const PaymentPage = () => {
         setSelectedCoupon(null);
         setDiscountAmount(0);
       } else {
-        console.log("event.target", event.target.value);
         const selected = availableCoupons.find((item) => item._id === value);
         if (selected && selected.couponId) {
           if (totalPrice < selected.couponId.minAmount) {

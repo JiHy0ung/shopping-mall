@@ -23,8 +23,6 @@ const EventQuizPage = () => {
     dispatch(getUserCouponList());
   }, []);
 
-  console.log("userCouponList", userCouponList);
-
   const handleSubmit = (event) => {
     event.preventDefault();
     if (selected === 3) {

@@ -83,7 +83,9 @@ const PaymentPage = () => {
       })
     );
     if (selectedCoupon) {
-      dispatch(applyUserCoupon({ userCouponId: selectedCoupon._id }));
+      dispatch(applyUserCoupon({ userCouponId: selectedCoupon._id })).then(() =>
+        dispatch(getUserCouponList())
+      );
     }
   };
 

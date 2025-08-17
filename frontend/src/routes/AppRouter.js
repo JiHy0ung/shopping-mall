@@ -15,6 +15,7 @@ import WishPage from "../page/WishPage/WishPage";
 import ProductsPage from "../page/ProductsPage/ProductsPage";
 import EventPage from "../page/EventPage/EventPage";
 import EventQuizPage from "../page/EventQuizPage/EventQuizPage";
+import AdminCouponPage from "../page/AdminCouponPage/AdminCouponPage";
 
 const AppRouter = () => {
   return (
@@ -36,6 +37,7 @@ const AppRouter = () => {
       <Route element={<PrivateRoute permissionLevel="admin" />}>
         <Route path="/admin/product" element={<AdminProduct />} />
         <Route path="/admin/order" element={<AdminOrderPage />} />
+        <Route path="/admin/coupon" element={<AdminCouponPage />} />
       </Route>
     </Routes>
   );

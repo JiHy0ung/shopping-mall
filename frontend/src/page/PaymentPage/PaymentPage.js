@@ -5,12 +5,19 @@ import { useSelector, useDispatch } from "react-redux";
 import OrderReceipt from "./component/OrderReceipt";
 import PaymentForm from "./component/PaymentForm";
 import "./style/paymentPage.style.css";
-import { cc_expires_format } from "../../utils/number";
+import { cc_expires_format, currencyFormat } from "../../utils/number";
 import { createOrder } from "../../features/order/orderSlice";
+import {
+  getUserCouponList,
+  applyUserCoupon,
+} from "../../features/userCoupon/userCouponSlice";
+import { showToastMessage } from "../../features/common/uiSlice";
 
 const PaymentPage = () => {
   const dispatch = useDispatch();
   const { orderNum } = useSelector((state) => state.order);
+  const { userCouponList } = useSelector((state) => state.userCoupon);
+
   const { cartList, totalPrice } = useSelector((state) => state.cart);
   const [cardValue, setCardValue] = useState({
     cvc: "",
@@ -29,8 +36,11 @@ const PaymentPage = () => {
     city: "",
     zip: "",
   });
+  const [selectedCoupon, setSelectedCoupon] = useState(null);
+  const [discountAmount, setDiscountAmount] = useState(0);
 
   useEffect(() => {
+    dispatch(getUserCouponList());
     if (firstLoading) {
       setFirstLoading(false);
     } else {
@@ -40,13 +50,26 @@ const PaymentPage = () => {
     }
   }, [orderNum]);
 
+  const calculateDiscount = (coupon, orderTotal) => {
+    if (!coupon) return 0;
+    if (coupon.discountType === "percentage") {
+      const discount = orderTotal * (coupon.discountValue / 100);
+      return discount;
+    } else if (coupon.discountType === "fixed") {
+      return Math.min(coupon.discountValue, orderTotal);
+    }
+    return 0;
+  };
+
+  const finalPrice = totalPrice - discountAmount;
+
   const handleSubmit = (event) => {
     event.preventDefault();
 
     const { firstName, lastName, contact, address, city, zip } = shipInfo;
     dispatch(
       createOrder({
-        totalPrice,
+        totalPrice: finalPrice,
         shipTo: { address, city, zip },
         contact: { firstName, lastName, contact },
         orderList: cartList.map((item) => {
@@ -59,12 +82,45 @@ const PaymentPage = () => {
         }),
       })
     );
+    if (selectedCoupon) {
+      dispatch(applyUserCoupon({ userCouponId: selectedCoupon._id }));
+    }
   };
 
+  const availableCoupons = Array.isArray(userCouponList)
+    ? userCouponList.filter((coupon) => !coupon.isUsed)
+    : [];
   const handleFormChange = (event) => {
     //shipInfo에 값 넣어주기
     const { name, value } = event.target;
-    setShipInfo({ ...shipInfo, [name]: value });
+    if (name === "coupon") {
+      if (value === "") {
+        setSelectedCoupon(null);
+        setDiscountAmount(0);
+      } else {
+        console.log("event.target", event.target.value);
+        const selected = availableCoupons.find((item) => item._id === value);
+        if (selected && selected.couponId) {
+          if (totalPrice < selected.couponId.minAmount) {
+            dispatch(
+              showToastMessage({
+                message: `${currencyFormat(
+                  selected.couponId.minAmount
+                )} 원 이상 주문시 사용 가능합니다.`,
+                status: "error",
+              })
+            );
+            return;
+          }
+
+          const discount = calculateDiscount(selected.couponId, totalPrice);
+          setSelectedCoupon(selected);
+          setDiscountAmount(discount);
+        }
+      }
+    } else {
+      setShipInfo({ ...shipInfo, [name]: value });
+    }
   };
 
   const handlePaymentInfoChange = (event) => {
@@ -158,6 +214,20 @@ const PaymentPage = () => {
                       />
                     </Form.Group>
                   </Row>
+                  <Form.Group as={Col} controlId="formGridCoupon">
+                    <Form.Label>Coupon</Form.Label>
+                    <Form.Select onChange={handleFormChange} name="coupon">
+                      <option value="">쿠폰을 선택하세요</option>
+                      {(Array.isArray(userCouponList)
+                        ? userCouponList
+                        : []
+                      ).map((item, idx) => (
+                        <option key={idx} value={item._id}>
+                          {item.couponId.name}
+                        </option>
+                      ))}
+                    </Form.Select>
+                  </Form.Group>
                 </div>
                 <div className="mobile-receipt-area">
                   <OrderReceipt cartList={cartList} totalPrice={totalPrice} />
@@ -185,7 +255,12 @@ const PaymentPage = () => {
           </div>
         </Col>
         <Col lg={5} className="receipt-area mt-2">
-          <OrderReceipt cartList={cartList} totalPrice={totalPrice} />
+          <OrderReceipt
+            cartList={cartList}
+            totalPrice={totalPrice}
+            discountAmount={discountAmount}
+            finalPrice={finalPrice}
+          />
         </Col>
       </Row>
     </Container>

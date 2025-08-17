@@ -1,0 +1,27 @@
+.modal-header {
+  background-color: #1f1f21;
+  border-bottom: 1px solid #373739;
+}
+.modal-content {
+  background-color: #1f1f21;
+}
+.form-container {
+  color: white;
+  background-color: #1f1f21;
+  padding: 20px;
+}
+.form-container *::placeholder {
+  color: rgb(200, 200, 200);
+}
+.form-control:focus {
+  background-color: #373739;
+  color: white !important;
+}
+.form-container input,
+.form-container textarea,
+.form-container select,
+.form-container .form-select,
+.form-container .form-control {
+  background-color: #373739 !important;
+  color: white;
+}

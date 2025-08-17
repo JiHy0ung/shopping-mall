@@ -1,12 +1,19 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Button } from "react-bootstrap";
 import { useNavigate } from "react-router";
 import { useLocation } from "react-router-dom";
 import { currencyFormat } from "../../../utils/number";
 
-const OrderReceipt = ({ cartList, totalPrice }) => {
+const OrderReceipt = ({
+  cartList,
+  totalPrice,
+  discountAmount = 0,
+  finalPrice,
+}) => {
   const location = useLocation();
   const navigate = useNavigate();
+
+  useEffect(() => {}, [finalPrice]);
 
   return (
     <div className="receipt-container">
@@ -31,12 +38,22 @@ const OrderReceipt = ({ cartList, totalPrice }) => {
           <p>무료</p>
         </li>
       </ul>
+      {discountAmount > 0 && (
+        <div className="display-flex space-between receipt-discount">
+          <div>
+            <strong>할인 금액</strong>
+          </div>
+          <div>
+            <strong>-{currencyFormat(discountAmount)} 원</strong>
+          </div>
+        </div>
+      )}
       <div className="display-flex space-between receipt-total">
         <div>
           <strong>총 결제 금액</strong>
         </div>
         <div>
-          <strong>{currencyFormat(totalPrice)} 원</strong>
+          <strong>{currencyFormat(finalPrice ?? totalPrice)} 원</strong>
         </div>
       </div>
       {location.pathname.includes("/cart") &&

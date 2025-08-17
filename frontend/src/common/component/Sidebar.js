@@ -44,6 +44,12 @@ const Sidebar = () => {
           >
             order
           </li>
+          <li
+            className="sidebar-item"
+            onClick={() => handleSelectMenu("/admin/coupon?page=1")}
+          >
+            coupon
+          </li>
         </ul>
       </div>
     );

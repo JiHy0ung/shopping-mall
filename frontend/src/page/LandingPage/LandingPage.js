@@ -29,29 +29,7 @@ const LandingPage = () => {
   return (
     <>
       <LandingHero />
-      <Container>
-        {loading ? (
-          <LandingSkeleton />
-        ) : (
-          <Row>
-            {productList.length > 0 ? (
-              productList.map((item) => (
-                <Col md={4} sm={12} key={item._id}>
-                  <ProductCard item={item} />
-                </Col>
-              ))
-            ) : (
-              <div className="text-align-center empty-bag">
-                {name === "" ? (
-                  <h2>등록된 상품이 없습니다!</h2>
-                ) : (
-                  <h2>"{name}" 과 일치한 상품이 없습니다!</h2>
-                )}
-              </div>
-            )}
-          </Row>
-        )}
-      </Container>
+      <Container>{loading && <LandingSkeleton />}</Container>
     </>
   );
 };

@@ -24,3 +24,101 @@
 .event-container h4 {
   font-weight: 700;
 }
+
+.event-quiz-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.event-quiz-container h2 {
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.event-quiz-container img {
+  width: 100%;
+}
+
+.quiz-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+.quiz-check {
+  display: flex;
+}
+
+.quiz-fail {
+  font-weight: 700;
+  color: crimson;
+}
+
+.quiz-btn {
+  width: 20rem;
+  height: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid white;
+  border-radius: 30px;
+  background-color: white;
+  font-weight: 500;
+  margin-top: 1rem;
+  transition: all 0.2s ease;
+}
+.quiz-btn:hover {
+  color: white;
+  background-color: #111111;
+  border: 1px solid #111111;
+  transform: translateY(2px);
+  box-shadow: none;
+}
+.quiz-btn:active {
+  color: white;
+  background-color: #111111;
+  border: 1px solid #111111;
+  outline: none;
+  box-shadow: none;
+}
+
+.quiz-form .form-check-inline {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.25rem;
+}
+.quiz-form .form-check-input {
+  width: 1.5rem !important;
+  height: 1.5rem !important;
+  border: 1px solid white;
+  cursor: pointer;
+}
+.quiz-form .form-check-input:checked {
+  background-color: #111111;
+  border: 1px solid white;
+  box-shadow: none;
+}
+.quiz-form .form-check-input:focus {
+  box-shadow: none;
+}
+
+.modal-dialog {
+  margin: 20rem auto !important;
+}
+
+.quiz-modal .btn-close {
+  filter: invert(100%);
+}
+.quiz-modal .modal-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

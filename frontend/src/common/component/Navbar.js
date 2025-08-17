@@ -19,7 +19,7 @@ const Navbar = ({ user }) => {
   const { cartItemCount } = useSelector((state) => state.cart);
   const isMobile = window.navigator.userAgent.indexOf("Mobile") !== -1;
   const [showSearchBox, setShowSearchBox] = useState(false);
-  const menuList = ["New", "All", "Men", "Women", "Kids", "Shoes", "Event"];
+  const menuList = ["New", "All", "Top", "Pants", "Shoes", "Event"];
   let [width, setWidth] = useState(0);
   let navigate = useNavigate();
 

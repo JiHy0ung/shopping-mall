@@ -5,6 +5,8 @@ import productSlice from "./product/productSlice";
 import cartSlice from "./cart/cartSlice";
 import orderSlice from "./order/orderSlice";
 import wishSlice from "./wish/wishSlice";
+import couponSlice from "./coupon/couponSlice";
+import userCouponSlice from "./userCoupon/userCouponSlice";
 
 const store = configureStore({
   reducer: {
@@ -14,6 +16,8 @@ const store = configureStore({
     ui: uiSlice,
     order: orderSlice,
     wish: wishSlice,
+    coupon: couponSlice,
+    userCoupon: userCouponSlice,
   },
 });
 export default store;

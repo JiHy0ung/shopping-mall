@@ -43,6 +43,10 @@
   max-width: 750px;
 }
 
+.status-card-container h3 {
+  margin-block: 20px;
+}
+
 .order-button-area {
   margin-top: 20px;
   display: flex;
@@ -82,6 +86,58 @@
   font-size: 1.025rem;
   font-weight: 700;
   margin-bottom: 0.5rem;
+}
+
+.user-info-area {
+  border-top: 1px solid gray;
+  border-bottom: 1px solid gray;
+  padding-block: 1rem;
+  margin-block: 1rem;
+}
+.user-info-area p {
+  margin-bottom: 0.5rem;
+}
+
+.user-coupon-area {
+  font-weight: 500;
+  border-bottom: 1px solid gray;
+  padding-bottom: 2rem;
+  margin-bottom: 2rem;
+}
+
+.user-coupon-area h4 {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.user-coupon-card {
+  background-color: white;
+  color: #111111;
+  border: 1px solid gray;
+  border-radius: 1rem;
+  padding: 1rem;
+}
+.user-coupon-card h5 {
+  border-bottom: 1px solid gray;
+  padding-bottom: 0.5rem;
+  font-weight: 900;
+}
+
+.user-coupon-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.user-coupon-info p {
+  margin: 0;
+}
+
+#discount {
+  font-weight: 800;
+}
+
+#date {
+  color: gray;
 }
 
 @media screen and (max-width: 63rem) {

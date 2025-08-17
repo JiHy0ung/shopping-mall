@@ -303,7 +303,7 @@ const Navbar = ({ user }) => {
                         className="popover-content"
                         onClick={() => navigate("/account/purchase")}
                       >
-                        주문
+                        마이페이지
                       </p>
                       <p
                         className="popover-content"
